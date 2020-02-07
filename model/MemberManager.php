@@ -1,8 +1,8 @@
 <?php
 
-namespace OpenClassrooms\Blog\Model;
+//namespace OpenClassrooms\Blog\Model;
 
-//require_once("model/Manager.php");
+require_once("model/Manager.php");
 
 class MemberManager extends Manager
 {

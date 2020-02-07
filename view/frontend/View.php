@@ -1,6 +1,6 @@
 <?php
 
-Class Vue
+Class View
 {
 	//Nom du fichier associé à la vue
 	private $file;
@@ -10,7 +10,7 @@ Class Vue
 	public function __construct($action)
 	{
 		//Détermination du nom du fichier vue à partir de l'action
-		$this->file = "View/frontend/view" . $action . ".php";
+		$this->file = "View/frontend/" . $action . ".php";
 	}
 
 	//Génère et affiche la vue
@@ -35,7 +35,7 @@ Class Vue
 			//inclut le fichier vue
 			//son résultat est placé dans le tampon de sortie
 			require $file;
-			return on_get_clean();			
+			return ob_get_clean();			
 		}
 		else
 		{

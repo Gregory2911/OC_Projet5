@@ -10,8 +10,8 @@ class Routeur
 
 	public function __construct()
 	{
-		$this->ctrlFrontend = new OpenClassrooms\Blog\Controller\FrontendController();
-		$this->ctrlConnexion = new OpenClassrooms\Blog\Controller\ConnexionController();
+		$this->ctrlFrontend = new FrontendController();
+		$this->ctrlConnexion = new ConnexionController();
 	}
 
 	//traite une requête entrante
@@ -20,19 +20,16 @@ class Routeur
 		try { //on essaie de faire des choses
 		    if (isset($_GET['action'])) {
 		        if ($_GET['action'] == 'connexion')
-		        {
-		            $connexion = new ConnexionController();
-		            $accueil = new OpenClassrooms\Blog\Controller\FrontendController();
-		            $connexion->verifyMember($_POST['login']);            
-		            $accueil->listPosts();
+		        {		           		            
+		            $this->ctrlConnexion->verifyMember($_POST['login']);            
+		            $this->ctrlFrontend->listPosts();
 		        }
 
 		        elseif ($_GET['action'] == 'inscription')
 		        {
 		            if (!empty($_POST['prénom']) && !empty($_POST['nom']) && !empty($_POST['email']) && !empty($_POST['login']) && !empty($_POST['password']))
-		            {
-		                $inscription = new ConnexionController();
-		                $inscription->addMember($_POST['prénom'],$_POST['nom'],$_POST['email'],$_POST['login'],$_POST['password']);                
+		            {		               
+		                $this->ctrlConnexion->addMember($_POST['prénom'],$_POST['nom'],$_POST['email'],$_POST['login'],$_POST['password']);                
 		            }
 		            else
 		            {
@@ -42,20 +39,17 @@ class Routeur
 
 		        elseif ($_GET['action'] == 'deconnexion')
 		        {
-		            //session_start();
-		            $accueil = new OpenClassrooms\Blog\Controller\FrontendController();
+		            //session_start();		            
 		            session_destroy();
-		            $accueil->listPosts();
+		            $this->ctrlFrontend->listPosts();
 		        }        
 
-		        elseif ($_GET['action'] == 'listPosts') {
-		            $posts = new OpenClassrooms\Blog\Controller\FrontendController();
-		            $posts->listPosts();            
+		        elseif ($_GET['action'] == 'listPosts') {		            
+		            $this->ctrlFrontend->listPosts();
 		        }
 		        elseif ($_GET['action'] == 'post') {
-		            if (isset($_GET['id']) && $_GET['id'] > 0) {
-		                $post = new OpenClassrooms\Blog\Controller\FrontendController();
-		                $post->post($_GET['id']);
+		            if (isset($_GET['id']) && $_GET['id'] > 0) {		                
+		                $this->ctrlFrontend->post($_GET['id']);
 		            }
 		            else {
 		                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
@@ -66,9 +60,8 @@ class Routeur
 		            if (isset($_SESSION['pseudo']) && isset($_SESSION['id']))
 		            {
 		                if (isset($_GET['id']) && $_GET['id'] > 0) {
-		                    if (!empty($_POST['comment'])) { 
-		                        $comment = new OpenClassrooms\Blog\Controller\FrontendController();               
-		                        $comment->addComment($_GET['id'], $_SESSION['pseudo'], $_POST['comment']);
+		                    if (!empty($_POST['comment'])) { 		                                      
+		                        $this->ctrlFrontend->addComment($_GET['id'], $_SESSION['pseudo'], $_POST['comment']);
 		                    }
 		                    else {
 		                        // Autre exception
@@ -91,9 +84,8 @@ class Routeur
 		            if (isset($_SESSION['pseudo']) && isset($_SESSION['id']))
 		            {
 		                if (isset($_GET['id']) && $_GET['id'] > 0)
-		                {
-		                    $comment = new OpenClassrooms\Blog\Controller\FrontendController();
-		                    $comment->comment($_GET['id']);
+		                {		                    
+		                    $this->ctrlFrontend->comment($_GET['id']);
 		                }
 		                else
 		                {
@@ -109,15 +101,13 @@ class Routeur
 		        elseif ($_GET['action'] == 'updateComment')
 		        {
 		            if (isset($_GET['id']) && $_GET['id'] > 0)
-		            {
-		                $comment = new OpenClassrooms\Blog\Controller\FrontendController();
-		                $comment->updateComment($_GET['id'],$_POST['comment'],$_GET['postid']);
+		            {		                
+		                $this->ctrlFrontend->updateComment($_GET['id'],$_POST['comment'],$_GET['postid']);
 		            }
 		        }
 		    }
-		    else {
-		        $posts = new OpenClassrooms\Blog\Controller\FrontendController();
-		        $posts->listPosts();
+		    else {		        
+		        $this->ctrlFrontend->listPosts();
 		    }
 		}
 
