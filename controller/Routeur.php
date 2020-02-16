@@ -5,7 +5,7 @@ require_once 'Controller/ConnexionController.php';
 
 class Routeur 
 {
-	private $ctrlFontend;
+	private $ctrlFrontend;
 	private $ctrlConnexion;
 
 	public function __construct()
