@@ -1,5 +1,7 @@
 <?php
 
+require_once 'framework/Configuration.php';
+
 Class View
 {
 	//Nom du fichier associé à la vue
@@ -7,10 +9,15 @@ Class View
 	//Titre de la vue (défini dans le fichier vue)
 	private $title;
 
-	public function __construct($action)
+	public function __construct($action, $controler = "")
 	{
 		//Détermination du nom du fichier vue à partir de l'action
-		$this->file = "View/frontend/" . $action . ".php";
+		$file = "view/";
+		if ($controler != "")
+		{
+			$file = $file . $controler . "/";			
+		}
+		$this->file = $file . $action . ".php";
 	}
 
 	//Génère et affiche la vue
@@ -18,8 +25,12 @@ Class View
 	{
 		//Génération de la partie spécifique de la vue
 		$content = $this->generateFile($this->file, $data);
+		//On définit une variable locale accessible par la vue pour la racine web
+		//Il s'agit du chemine vers le site sur le serveur Web
+		//Nécessaire pour les URL de type controler/action/id
+		$racineWeb = Configuration::get("racineWeb","/");
 		//Génération du template commun utilisant la partie spécifique
-		$view = $this->generateFile('View/frontend/template.php',array('title' => $this->title, 'content' => $content));
+		$view = $this->generateFile('view/frontend/template.php',array('title' => $this->title, 'content' => $content, 'racineWeb' => $racineWeb));
 		//Renvoi la vue au navigateur
 		echo $view;
 	}

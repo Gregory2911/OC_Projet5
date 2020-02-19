@@ -19,7 +19,7 @@ abstract class Manager
 		{			
 			$resultat = self::dbConnect()->prepare($sql); //requête préparée
 			$resultat->execute($params);
-		}
+		}		
 		return $resultat;
 	}
 

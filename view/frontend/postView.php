@@ -22,7 +22,7 @@
     while ($comment = $comments->fetch())
     {
     ?>
-        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?><a href="index.php?action=modifyComment&amp;id=<?= $comment['id'] ?>">Modifier</a></p>
+        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?><a href="frontend/comment/<?= $comment['id'] ?>">Modifier</a></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
     <?php
     }
@@ -32,7 +32,7 @@
 
     <h2>Commentaires</h2>
 
-    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">            
+    <form action="frontend/addComment/id=<?= $post['id'] ?>" method="post">            
         <div>
             <label for="comment">Commentaire</label><br />
             <textarea id="comment" name="comment"></textarea>

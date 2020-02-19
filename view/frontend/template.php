@@ -1,7 +1,11 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
+	<base href="<?= $racineWeb ?>">
 	<title><?= $title ?></title>
 	<link href="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="public/style.css" rel="stylesheet">
@@ -30,7 +34,7 @@
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
 					{
 						echo '<p>Bonjour '.$_SESSION['pseudo'].' !</p>';
-						echo '<a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a>';
+						echo '<a class="nav-link" href="connexion/deconnexion">Deconnexion</a>';
 					}
 					else
 					{
@@ -76,7 +80,7 @@
         			<button type="button" class="close" data-dismiss="modal">x</button>
       			</div>
      			<div class="modal-body">
-        			<form method="post" action="index.php?action=connexion">
+        			<form method="post" action="connexion/connexion">
         				<p>
 	        				<label class="" for="login">login : </label>
 	        				<input type="text" name="login" id="login" placeholder="login"/>
@@ -104,7 +108,7 @@
         			<button type="button" class="close" data-dismiss="modal">x</button>
       			</div>
      			<div class="modal-body">
-        			<form method="post" action="index.php?action=inscription">
+        			<form method="post" action="connexion/inscription">
         				<p>
 	        				<label class="" for="prénom">Prénom : </label>
 	        				<input type="text" name="prénom" id="prénom" placeholder="prénom"/>
@@ -133,7 +137,7 @@
        		</div>
        	</div>
 	</div>								    
-
+	
   	<?= $content ?>
 
  	<!--Section coordonnées-->

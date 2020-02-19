@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Request.php';
-require_once 'View.php';
+require_once 'view/frontend/View.php';
 
 abstract class Controler
 {
@@ -35,7 +35,7 @@ abstract class Controler
 
 	//Méthode abstraite correspondant à l'action par défaut
 	//Oblige les classes enfants à implémenter cette action par défaut
-	public abstract function index();
+	//public abstract function index();
 
 	//Génère la vue associée au controleur courant
 	protected function generateView($dataView = array())
@@ -43,8 +43,9 @@ abstract class Controler
 		//Détermination du nom du fichier vue à partir du nom du contrôleur actuel
 		$classControler = get_class($this);
 		$controler = str_replace("Controler", "", $classControler);
+		$action = $this->action ."View";
 		//Instanciation et génération de la vue
-		$view = new View($this->action, $controler);
+		$view = new View($action, $controler);
 		$view->generate($dataView);
 	}
 }

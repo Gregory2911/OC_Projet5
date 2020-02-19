@@ -7,7 +7,7 @@ while ($data = $comment->fetch())
 {
 ?>
 
-    <form action="index.php?action=updateComment&amp;id=<?= $data['id'] ?>&amp;postid=<?= $data['post_id'] ?>" method="post">
+    <form action="frontend/updateComment/<?= $data['id'] ?>" method="post">
         <div>
             <label for="author">Auteur</label><br />
             <input type="text" id="author" name="author" value="<?=$data['author'] ?>" />

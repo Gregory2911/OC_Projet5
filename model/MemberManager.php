@@ -6,10 +6,10 @@ require_once("framework/Manager.php");
 
 class MemberManager extends Manager
 {
-	public function getMember($pseudo)
+	public function getMember($pseudo, $password)
 	{
-		$req = 'select id, pseudo, password, isAdmin from members where pseudo = ?';		
-		$member = $this->executeRequete($req,array($pseudo));		
+		$req = 'select id, pseudo, password, isAdmin from members where pseudo = ? and password = ?';		
+		$member = $this->executeRequete($req,array($pseudo, $password));		
 
 		return $member;
 	}

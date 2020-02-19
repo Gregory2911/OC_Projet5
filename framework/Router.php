@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Request.php';
-require_once 'View.php';
+require_once 'view/frontend/View.php';
 
 class Router
 {
@@ -13,8 +13,8 @@ class Router
 			//fusion des paramètres GET et POST de la requête
 			$request = new Request(array_merge($_GET, $_POST));
 
-			$controler = $this->createController($requete);
-			$action = $this->createAction($requete);
+			$controler = $this->createController($request);
+			$action = $this->createAction($request);
 
 			$controler->executeAction($action);		
 		}
@@ -28,18 +28,18 @@ class Router
 	}
 
 	//Crée le contrôleur approprié en fonction de la requête reçue
-	private function createController(Requete $request)
+	private function createController(Request $request)
 	{
-		$controler = "Accueil";
+		$controler = "Frontend";
 		if ($request->parameterExists('controler'))
 		{
-			$controller = $request->getParameter('controler');
+			$controler = $request->getParameter('controler');
 			//1ere lettre en majuscule
 			$controler = ucfirst(strtolower($controler));			
 		}
 		//création du nom du fichier du controler
 		$classControler = $controler . "Controler";
-		$fileControler = "Controler/" . $classControler;
+		$fileControler = "Controler/" . $classControler .".php";
 		if (file_exists($fileControler))
 		{
 			//instanciation du controler adapté à la requête
@@ -57,7 +57,7 @@ class Router
 	//Determine l'action à exécuter en fonction de la requête reçue
 	private function createAction(Request $request)
 	{
-		$action = "index"; //action par défaut
+		$action = "listPosts"; //action par défaut
 		if ($request->parameterExists('action'))
 		{
 			$action = $request->getParameter('action');

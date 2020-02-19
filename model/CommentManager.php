@@ -36,4 +36,12 @@ class CommentManager extends Manager
         $affectedLines = $this->executeRequete($req,array($comment,$commentId));
         //echo $commentId." ".$comment;
     }
+
+    public function getCommentPost($commentId)
+    {
+        $req = 'select comments.post_id from comments where comments.id = ?';
+        $post = $this->executeRequete($req,array($commentId));
+        $post = intval($post->fetch());
+        return $post;
+    }
  }
