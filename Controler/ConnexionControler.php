@@ -43,28 +43,29 @@ class ConnexionControler extends Controler
 		header("Location:" . $racineWeb . "index.php");
 	}
 
-	public function addMember($prenom,$nom,$email,$login,$password)
+	public function inscription()
 	{		
-
-		$member = $memberManager->addMember($prenom,$nom,$email,$login,$password);
-
-		$member = $memberManager->getMember($login,$password);
-
-		if ($member === false)
+		$prenom = $this->request->getParameter('prénom');
+		$nom = $this->request->getParameter('nom');
+		$email = $this->request->getParameter('email');
+		$login = $this->request->getParameter('login');
+		$password = $this->request->getParameter('password');
+		$member = $this->member->addMember($prenom,$nom,$email,$login,$password);		
+		$member = $this->member->getMember($login,$password);
+		$data = $member->fetch();
+		if (empty($data))
 		{
 			throw new Exception("");
 		}
 		else
 		{			
-			//Initialisation d'une session
-			while($data = $member->fetch())
-			{
-				$_SESSION['id'] = $data['id'];
-				$_SESSION['pseudo'] = $data['pseudo'];				
-			}
-			$member->closeCursor();
-			listPosts();			
+			//Initialisation d'une session					
+			$_SESSION['id'] = $data['id'];
+			$_SESSION['pseudo'] = $data['pseudo'];							
+			$member->closeCursor();			
 		}
+		$racineWeb = Configuration::get("racineWeb","/");
+		header("Location:" . $racineWeb . "index.php");
 	}
 
 	public function deconnexion()
