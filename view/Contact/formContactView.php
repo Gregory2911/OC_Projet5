@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" id="formContact">
 
     <!--<?php if($message) :?>
         <?php echo $message; ?>
     <?php endif;?>-->
 
-<section class="jumbotron text-center" id="formContact">
+<section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">PAGE CONTACT</h1>
         <p class="lead text-muted mb-0">Page Contact de mon Blog</p>

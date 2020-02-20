@@ -1,28 +1,40 @@
 <?php $this->title = 'Mon blog'; ?> <!--1. on definit le titre de la page dans $title. Celui ci sera intégré dans la balise <title> dans le template-->
 
+<section id="monBlog" class="container">             
+    <h1 class="titreSectionBlog">Le blog d'un étudiant OpenClassrooms</h1>
+    <p class="titreSectionBlog">Derniers billets du blog :</p>
 
-    <h1>Mon super blog !</h1>
-    <p>Derniers billets du blog :</p>
+    <div id="blog">
+        <?php
+        while ($data = $posts->fetch())
+        {
+        ?>
+            <div class="row">
+                <div class="col-lg-5 posts">
+                    <div class="row">
+                    <div class="col-lg-12 essai">
+                        <a href="frontend/post/<?= $data['id'] ?>">
+                            <img src= "public/images/<?=$data['src_photo_mini']?>" id="photoPost">
+                        </a>
+                    </div>
+                    </div>
 
-<div id="blog">
-    <?php
-    while ($data = $posts->fetch())
-    {
-    ?>
-        <div class="news">
-            <h3>
-                <?= $this->sanitize($data['title']); ?>
-                <em>le <?= $this->sanitize($data['creation_date_fr']); ?></em>
-            </h3>
-            
-            <p>
-                <?= nl2br($this->sanitize($data['content'])); ?>
-                <br />
-                <em><a href="frontend/post/<?= $data['id'] ?>">Commentaires</a></em>
-            </p>
-        </div>
-    <?php
-    }
-    $posts->closeCursor();
-    ?>
-</div>
+                    <h3>
+                        <?= $this->sanitize($data['title']); ?>
+                        <em>le <?= $this->sanitize($data['creation_date_fr']); ?></em>
+                    </h3>                                        
+                    <p class ="postContent">
+                        <?= nl2br($this->sanitize($data['content'])); ?>                                        
+                    </p>                    
+                    <p>
+                        <em><a href="frontend/post/<?= $data['id'] ?>">Commentaires</a></em>
+                    </p>
+                    
+                </div>
+            </div>
+        <?php
+        }
+        $posts->closeCursor();
+        ?>
+    </div>
+</section>

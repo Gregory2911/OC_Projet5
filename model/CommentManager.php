@@ -44,4 +44,12 @@ class CommentManager extends Manager
         $post = intval($post->fetch());
         return $post;
     }
+
+    public function countComments($postId)
+    {
+        $req = 'select count(comments.id) as nbComments from comments where comments.post_id = ?';
+        $nb = $this->executeRequete($req, array($postId));
+        $nb = intval($nb->fetch());
+        return $nb;
+    }
  }

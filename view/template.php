@@ -33,7 +33,7 @@
 
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
 					{
-						echo '<p>Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
+						echo '<p id="helloMember">Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
 						echo '<a class="nav-link" href="connexion/deconnexion">Deconnexion</a>';
 					}
 					else
@@ -62,10 +62,10 @@
 	 	<div class="container-fluid bouton">
 	 		<div class="container">
 		 		<div class="row">			 			
-		 			<a href="#programmation" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Programmation" id="btnProg"><img class="photoMenu" src="public/images/btn_prog.png" alt="programmation festival films plein air"/></a>
-		 			<a data-toggle="modal" data-content="Inscription" id="btnInscription" href="#inscription" class="btn btn-lg btn-primary photoMenuInscription"><img class="photoMenu" src="public/images/btn_inscription.png" alt="inscription festival films plein air"/></a>
-		 			<a href="#actualités" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Actualités" id="btnNews"><img class="photoMenu" src="public/images/btn_news.png" alt="actualites festival films plein air"/></a>			 					 									
-		 			<a href="#photos" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Photos" id="btnPhoto"><img class="photoMenu" src="public/images/btn_photo.png" alt="photo festival film plein air"/></a>			
+		 			<a href="frontend/listPosts/#blog" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="public/images/blog.png" alt="programmation festival films plein air"/></a>
+		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btn btn-lg btn-primary photoMenuInscription"><img class="photoMenu" src="public/images/connexion.png" alt="inscription festival films plein air"/></a>
+		 			<a href="#actualités" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="public/images/CV.png" alt="actualites festival films plein air"/></a>			 					 									
+		 			<a href="contact/formContact/#formContact" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="public/images/contact.png" alt="photo festival film plein air"/></a>			
 		 		</div>
 	 		</div>
 	 	</div>		 	
