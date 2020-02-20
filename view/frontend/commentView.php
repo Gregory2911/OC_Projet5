@@ -10,14 +10,14 @@ while ($data = $comment->fetch())
     <form action="frontend/updateComment/<?= $data['id'] ?>" method="post">
         <div>
             <label for="author">Auteur</label><br />
-            <input type="text" id="author" name="author" value="<?=$data['author'] ?>" />
+            <input type="text" id="author" name="author" value="<?=$this->sanitize($data['author']); ?>" />
         </div>
         <div>
             <label for="comment">Commentaire</label><br />
-            <textarea id="comment" name="comment"></textarea>
+            <textarea id="comment" name="comment"><?= $this->sanitize($data['comment']);?></textarea>
         </div>
         <div>
-            <input type="submit" />
+            <input type="submit" value="Modifier"/>
         </div>
     </form>
 <?php

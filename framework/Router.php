@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Request.php';
-require_once 'view/frontend/View.php';
+require_once 'View.php';
 
 class Router
 {
@@ -33,7 +33,7 @@ class Router
 		$controler = "Frontend";
 		if ($request->parameterExists('controler'))
 		{
-			$controler = $request->getParameter('controler');
+			$controler = $request->getParameter('controler');			
 			//1ere lettre en majuscule
 			$controler = ucfirst(strtolower($controler));			
 		}

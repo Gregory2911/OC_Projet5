@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'framework/Configuration.php';
 
 Class View
@@ -30,7 +30,7 @@ Class View
 		//Nécessaire pour les URL de type controler/action/id
 		$racineWeb = Configuration::get("racineWeb","/");
 		//Génération du template commun utilisant la partie spécifique
-		$view = $this->generateFile('view/frontend/template.php',array('title' => $this->title, 'content' => $content, 'racineWeb' => $racineWeb));
+		$view = $this->generateFile('view/template.php',array('title' => $this->title, 'content' => $content, 'racineWeb' => $racineWeb));
 		//Renvoi la vue au navigateur
 		echo $view;
 	}
@@ -52,5 +52,11 @@ Class View
 		{
 			throw new Exception("Fichier " .$file . " introuvable");			
 		}
+	}
+
+	//Nettoie une valeur insérée dans une page HTML
+	private function sanitize($value)
+	{
+		return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
 	}
 }

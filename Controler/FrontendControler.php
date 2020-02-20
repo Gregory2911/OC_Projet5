@@ -1,12 +1,12 @@
 <?php
-
+//session_start();
 //namespace OpenClassrooms\Blog\Controller;
 //Chargement des classes
 //use \OpenClassrooms\Blog\Model\PostManager;
 //use \OpenClassrooms\Blog\Model\CommentManager;
 require 'model/PostManager.php';
 require_once('model/CommentManager.php');
-require_once('View/frontend/View.php');
+//require_once('View/frontend/View.php');
 require_once('framework/Controler.php');
 
 Class FrontendControler extends Controler
@@ -44,18 +44,40 @@ Class FrontendControler extends Controler
 	    }
     }
 
-    public function addComment($postId, $author, $comment)
-    {    	
-    	$affectedLines = $this->comment->postComment($postId,$author,$comment);
-
-    	if ($affectedLines === false)
+    public function addComment()
+    {   
+        if ($this->request->parameterExists('comment'))
         {
-    		// Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
-            throw new Exception('Impossible d\'ajouter le commentaire !');
-    	}
-    	else {
-    		header('Location: index.php?action=post&id=' . $postId);        
-    	}
+            $comment = $this->request->getParameter('comment');
+        }
+        if(!isset($_SESSION['id']))
+        {
+            throw new Exception('Vous devez d\'abord vous connecter avant de poster un commentaire.');
+        }
+        elseif(!isset($comment))
+        {
+            throw new Exception('Vous n\'avez pas rédigé de commentaire.');   
+        }
+        elseif($comment == "")
+        {
+            throw new Exception('Vous n\'avez pas rédigé de commentaire.');   
+        }    
+        else
+        {   
+            $postId = $this->request->getParameter('id');                        
+        	$affectedLines = $this->comment->postComment($postId,$_SESSION['pseudo'],$comment,$_SESSION['id']);
+
+        	if ($affectedLines === false)
+            {
+        		// Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+                throw new Exception('Impossible d\'ajouter le commentaire !');
+        	}
+        	else 
+            {
+                $racineWeb = Configuration::get("racineWeb","/");
+        		header('Location:'. $racineWeb . 'frontend/post/' . $postId);        
+        	}
+        }
     }
 
     public function comment()

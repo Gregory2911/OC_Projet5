@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@ session_start();
 
 	<!--Menu de navigation-->
 	<nav id="essai" class="navbar navbar-light bg-light navbar-expand-lg sb-navbar sticky-top">
-		<a class="navbar-brand" id="logo" href="#">
+		<a class="navbar-brand" id="logo" href="frontend/listPosts">
 			<!--<img src="header.png" alt="logo festival film plein air">-->
 			<h1 id="sloganMenu"> | Grégory AGNAN | </h1>
 		</a>
@@ -25,15 +25,15 @@ session_start();
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-link" href="#">Mon Blog</a>
+				<a class="nav-link" href="frontend/listPosts/#blog">Mon Blog</a>
 				<a class="nav-link" href="#">A propos</a>
 				<a class="nav-link" href="#">Mon parcours</a>							
-				<a class="nav-link" href="#">Contact</a>
+				<a class="nav-link" href="contact/formContact/#formContact">Contact</a>
 				<?php
 
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
 					{
-						echo '<p>Bonjour '.$_SESSION['pseudo'].' !</p>';
+						echo '<p>Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
 						echo '<a class="nav-link" href="connexion/deconnexion">Deconnexion</a>';
 					}
 					else
@@ -93,7 +93,7 @@ session_start();
     						<input type="submit" value="Connexion">
         				</p>        					
        				</form>
-       				<button data-toggle="modal" href="#inscription" class="btn btn-primary inscription">Inscription</button>       				
+       				<button data-toggle="modal" href="#inscription" class="btn btn-primary inscription" id="suivant">Inscription</button>       				
 	      		</div>
 	    	</div>
 	  	</div>
@@ -130,7 +130,7 @@ session_start();
         					<input type="text" name="password" id="password" placeholder="mot de passe"/>
 						</p>			    
         				<p>
-    						<input type="submit" value="Connexion">
+    						<input type="submit" value="Inscription">
         				</p>        					
        				</form>
        			</div>
@@ -143,12 +143,12 @@ session_start();
  	<!--Section coordonnées-->
  	<section id="coordonnées">	 		
  		<div class="container">
- 			<h2 class="titreSection">Nous contacter</h2>
+ 			<h2 class="titreSection">Me contacter</h2>
 	 		<div class="row">	 			
 	 			<div class="col-lg-6">		 				
-	 				<strong>Association des films de plein air</strong>
-	 				<p>14 rue de Lisbonne<br/>75008 Paris</p>
-	 				<p>06 06 06 06 06</p>
+	 				<strong>Grégory AGNAN</strong>
+	 				<p>01 impasse des jardins de coavou<br/>22980 Vildé Guingalan</p>
+	 				<p>06 43 80 11 24</p>
 	 				<p>
 	 					<a href="mailto:contact@filmsdepleinair.org">contact@filmsdepleinair.org</a>
 	 				</p>
@@ -163,7 +163,7 @@ session_start();
  	
 
  	<footer>
- 		<p>Association des films de plein air</p>
+ 		<p>Grégory AGNAN</p>
  	</footer>
 
 </body>
@@ -182,6 +182,10 @@ session_start();
 		$("#btnNews").popover({placement:'bottom',trigger:'hover'});  
 	});
 	
+	$("#suivant").click(function() {
+		$('#connexion').modal('hide');
+		//$('#inscription').modal('show');		
+	});
 
 </script>
 </html>
