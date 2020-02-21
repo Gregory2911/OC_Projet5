@@ -14,7 +14,7 @@
                     <div class="row">
                     <div class="col-lg-12 essai">
                         <a href="frontend/post/<?= $data['id'] ?>">
-                            <img src= "public/images/<?=$data['src_photo_mini']?>" id="photoPost">
+                            <img src= "view/images/<?=$data['src_photo_mini']?>" id="photoPost">
                         </a>
                     </div>
                     </div>

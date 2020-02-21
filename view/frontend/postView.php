@@ -9,7 +9,7 @@
         <p><a href="index.php">Retour à la liste des billets</a></p>
 
         <div class="news">
-            <img src= "public/images/<?=$post['src_photo']?>" id="photoPost">
+            <img src= "view/images/<?=$post['src_photo']?>" id="photoPost">
             <h3>
                 <em>Posté le <?= $post['creation_date_fr'] ?></em>
             </h3>
@@ -19,7 +19,9 @@
             </p>
         </div>
 
-        <h2><?php $nbComments['nbComments'];?></h2>
+        <h2><?php 
+        $nbComments = $nbComments->fetch();?>            
+        </h2>
 
         <?php
         while ($comment = $comments->fetch())

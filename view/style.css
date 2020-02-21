@@ -1,7 +1,7 @@
 /*STYLE GENERAL*/
 @font-face{
 	font-family:'Comfortaa';
-	src:url('Comfortaa/Comfortaa-Regular.ttf');
+	src:url('../public/Comfortaa/Comfortaa-Regular.ttf');
 }
 body
 {
