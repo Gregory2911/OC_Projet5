@@ -1,0 +1,189 @@
+/*STYLE GENERAL*/
+@font-face{
+	font-family:'Comfortaa';
+	src:url('Comfortaa/Comfortaa-Regular.ttf');
+}
+body
+{
+	font-family: 'Comfortaa','lato','arial','verdana',sans-serif;
+	position: relative !important;
+}
+
+.titreSection
+{
+	font-weight: bold;
+	font-size: xx-large;
+	color: #c5bca5;
+}
+
+a:hover
+{
+	color: #7ff5bb !important;
+	text-decoration: none;
+}
+
+/*MENU DE NAVIGATION*/
+#logo
+{
+	display: flex;
+}
+
+#essai
+{
+	background-color: black !important;
+	border-bottom: 3px #7ff5bb solid;
+}
+
+
+.navbar-light .navbar-nav .nav-link 
+{
+	color: #fdd400;
+}
+
+#helloMember
+{
+	color: #fdd400;	
+	display: block;
+}
+
+.navbar-light .navbar-nav .nav-link.active
+{
+	color: #7ff5bb;
+}
+
+#sloganMenu
+{
+	margin: auto;	
+	font-size: large;
+	color: #fdd400;
+}
+
+/*HEADER*/
+header	
+{
+	color: black;
+	margin-bottom: 50px;
+}
+
+#topbar
+{
+	border-bottom: 2px #d1bbac solid;
+	border-top: 4px #d1bbac solid;
+}
+
+#sloganHeader
+{
+	color : #e8b937;
+	font-weight: bold;
+}
+
+.edition
+{
+	margin: auto;
+}
+
+.btn_reseauxsociaux
+{
+	margin: auto;
+	text-align: right;
+	border: 3px white solid;
+}
+
+#headerAccueil
+{
+	color: white;
+	background: url("images/header.jpg") no-repeat fixed;
+	background-size: cover;
+	height: 500px;	
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 1.9em;
+}
+
+
+/*Bouton entête*/
+.modal:focus,.btn-primary:focus
+{
+	box-shadow:none !important;
+}
+
+.bouton
+{
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: #fdd400;
+}
+
+.btn.btn-lg.btn-primary
+{
+	height: 125px;
+	width: 125px;
+	line-height: 95px;
+	border-radius: 100%;
+	color: #7ff5bb;
+	background-color: #7ff5bb;
+	border: 3px black solid;
+	font-weight: bold;
+	margin: auto;
+	text-align: center;
+}
+
+.btn.btn-lg.btn-primary:hover
+{
+	color: white;
+	background-color: #7ff5bb;	
+	border: 3px #e0312f solid;
+}
+
+footer
+{
+	background-color: black;
+	color: #e0312f;
+	text-align: center;
+}
+
+/*Section listPosts*/
+.titreSectionBlog
+{
+	text-align: center;
+}
+
+.posts
+{
+	background-color: #fdd400;
+}
+
+.essai
+{
+	padding: 0px;
+}
+
+.postContent
+{
+	word-wrap: break-word;
+}
+
+/*section post*/
+#postTitle
+{
+	text-align: center;
+}
+
+#photoPost
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#commentAuthor
+{
+	color: #fdd400;
+}
+
+#commentDate
+{
+	font-size: 10px;
+}
