@@ -34,12 +34,16 @@
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
 					{
 						echo '<p id="helloMember">Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
+						if ($_SESSION['isAdmin'] = 1)
+						{
+							echo '<a class="nav-link" href="backoffice/formPost">BackOffice</a>';
+						}
 						echo '<a class="nav-link" href="connexion/deconnexion">Deconnexion</a>';
 					}
 					else
 					{
 						echo '<a class="nav-link" data-toggle="modal" href="#connexion">Se connecter</a>';
-					}
+					}					
 				?>
 				
 			</div>
@@ -138,6 +142,12 @@
        	</div>
 	</div>								    
 	
+	<?php
+		if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1)
+		{
+			include ('BackOffice/menuBackOffice.php');
+		}
+	?>
   	<?= $content ?>
 
  	<!--Section coordonnées-->
@@ -170,10 +180,9 @@
 
 <script src="public/js/jquery-3.4.1.min.js"></script>
 
-<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
+<!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>-->
+<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
 <!--<script src="bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.js"></script>-->
-
 <script>
 	$(function (){
 		$("#btnProg").popover({placement:'bottom',trigger:'hover'}); 

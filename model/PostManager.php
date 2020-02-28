@@ -19,4 +19,18 @@ class PostManager extends Manager
         $post = $this->executeRequete($req,array($postId));
         return $post->fetch();
     }
+
+    public function addPost($title, $content, $idMember)
+    {
+        $req = 'insert into posts(title,content,creation_date,author_id) values(?,?,NOW(),?)';
+        $affectedLines = $this->executeRequete($req,array($title,$content,$idMember));
+        return $affectedLines;
+    }
+
+    public function addImgPost($postId, $src_photo, $src_photo_mini)
+    {
+        $req = 'update posts set src_photo = ? , src_photo_mini = ? where posts.id = ?';
+        $affectedLines = $this->executeRequete($req,array($src_photo,$src_photo_mini,$postId));
+        return $affectedLines;        
+    }
 }

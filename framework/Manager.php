@@ -37,4 +37,10 @@ abstract class Manager
 		}		
         return self::$bdd;
 	}
+
+	public function lastInsertId()
+	{
+		$Id = self::$bdd->lastInsertId();
+		return $Id;
+	}
 }

@@ -8,7 +8,7 @@ class CommentManager extends Manager
 {
     public function getComments($postId)
     {
-        $req = 'select id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, member_id FROM comments WHERE post_id = ? ORDER BY comment_date DESC';
+        $req = 'select id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, member_id FROM comments WHERE post_id = ? and comments.isValide = 1 ORDER BY comment_date DESC';
         $comments = $this->executeRequete($req,array($postId));
 
         return $comments;
@@ -47,10 +47,24 @@ class CommentManager extends Manager
 
     public function countComments($postId)
     {
-        $req = 'select count(comments.id) as nbComments from comments where comments.post_id = ?';        
+        $req = 'select count(comments.id) as nbComments from comments where comments.post_id = ? and comments.isValide = 1';        
         $nb = $this->executeRequete($req, array($postId));
         //$nb = intval($nb->fetch());
         //throw new Exception($nb);
         return $nb;
+    }
+
+    public function getCommentsBackOffice()
+    {
+        $req = 'select comments.id, comments.author,comments.comment, comments.comment_date, comments.post_id, comments.member_id, comments.isValide, posts.title, members.pseudo from comments left join posts on posts.id = comments.post_id left join members on members.id = comments.member_id order by comment_date DESC';
+        $comments = $this->executeRequete($req);
+        return $comments;
+    }
+
+    public function deleteComment($commentId)
+    {
+        $req = 'delete from comments where comments.id = ?';
+        $affectedLines = $this->executeRequete($req, array($commentId));
+        return $affectedLines;
     }
  }
