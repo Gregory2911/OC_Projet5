@@ -18,7 +18,7 @@ body
 
 a:hover
 {
-	color: #7ff5bb !important;
+	color: #3726a6 !important;
 	text-decoration: none;
 }
 
@@ -31,7 +31,7 @@ a:hover
 #essai
 {
 	background-color: black !important;
-	border-bottom: 3px #7ff5bb solid;
+	border-bottom: 3px #3726a6 solid;
 }
 
 
@@ -124,7 +124,7 @@ header
 	line-height: 95px;
 	border-radius: 100%;
 	color: #7ff5bb;
-	background-color: #7ff5bb;
+	background-color: #3726a6;
 	border: 3px black solid;
 	font-weight: bold;
 	margin: auto;
@@ -134,8 +134,8 @@ header
 .btn.btn-lg.btn-primary:hover
 {
 	color: white;
-	background-color: #7ff5bb;	
-	border: 3px #e0312f solid;
+	background-color: #3726a6;	
+	border: 3px #f20505 solid;
 }
 
 footer

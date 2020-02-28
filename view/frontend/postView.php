@@ -19,9 +19,15 @@
             </p>
         </div>
 
-        <h2><?php 
-        $nbComments = $nbComments->fetch();?>            
-        </h2>
+        <?php 
+        while ($nbComment = $nbComments->fetch())
+        {
+        ?>             
+    	<p><?=$nbComment['nbComments']?></p>
+        <?php
+    	}
+    	?>
+        
 
         <?php
         while ($comment = $comments->fetch())
