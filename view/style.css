@@ -73,7 +73,9 @@ header
 
 #sloganHeader
 {
-	color : #e8b937;
+	/*color : #e8b937;*/
+	
+	color : #fdd400;
 	font-weight: bold;
 }
 

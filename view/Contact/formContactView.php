@@ -1,9 +1,5 @@
 <div class="container" id="formContact">
 
-    <!--<?php if($message) :?>
-        <?php echo $message; ?>
-    <?php endif;?>-->
-
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">PAGE CONTACT</h1>
@@ -18,7 +14,7 @@
                     <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Me contacter
                     </div>
                     <div class="card-body">
-                        <form action="./?action=contact.postEmail" method="POST">
+                        <form action="contact/sendEmail" method="post">
                             <div class="form-group">
                                 <label for="name">Nom</label>
                                 <input type="text" class="form-control" name="name" id="name" value="" placeholder="Votre nom">
@@ -31,11 +27,7 @@
                             <div class="form-group">
                                 <label for="message">Message</label>
                                 <textarea class="form-control" name="message" id="message" rows="6" placeholder="Votre message"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <!--<div class="g-recaptcha" data-sitekey="<?php echo CLEF_CLIENT; ?>"></div>-->
-                            </div>
+                            </div>                            
 
                             <div class="mx-auto">
                             <button type="submit" class="btn btn-primary text-right">Envoyer</button></div>

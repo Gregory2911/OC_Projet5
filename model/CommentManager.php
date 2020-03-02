@@ -32,7 +32,7 @@ class CommentManager extends Manager
 
     public function updateComment($commentId, $comment)
     {
-        $req = 'update comments set comment = ? where comments.id = ?';
+        $req = 'update comments set comment = ?, isValide = 0 where comments.id = ?';
         $affectedLines = $this->executeRequete($req,array($comment,$commentId));
         //echo $commentId." ".$comment;
     }
