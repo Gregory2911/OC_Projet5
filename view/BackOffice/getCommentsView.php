@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped table-condensed">
+<table class="table table-bordered table-striped table-condensed" id="listComments">
   <caption>
   <h4>Liste des commentaires</h4>
   </caption>
@@ -33,7 +33,7 @@
               <td><?= $data['comment_date']?></td>
               <td><?= $data['comment']?></td>
               <td><?= $data['title']?></td>
-              <td><a href="backoffice/deleteComment/<?= $data['id'] ?>"><img src="view/images/Supprimer.png"></a><a href=""><img src="view/images/Valider.png"></a></td>
+              <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#listComments"><img src="view/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#listComments"><img src="view/images/Valider.png"></a></td>
           <?php
           }
         }

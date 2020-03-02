@@ -28,15 +28,18 @@ class ConnexionControler extends Controler
 			$data = $member->fetch();
 			if (!empty($data))
 			{
-				if ($data['isAdmin'] = 1)
+				if ($data['isAdmin'] == 1)
 				{
 					//Connexion administrateur
 					$_SESSION['isAdmin'] = 1;
 				}
+				else
+				{
+					$_SESSION['isAdmin'] = 0;	
+				}
 				//Initialisation d'une session								
 				$_SESSION['id'] = $data['id'];
-				$_SESSION['pseudo'] = $data['pseudo'];												
-				$_SESSION['isAdmin'] = 0;
+				$_SESSION['pseudo'] = $data['pseudo'];																
 				$member->closeCursor();		
 				//throw new Exception($_SESSION['pseudo']);
 			}

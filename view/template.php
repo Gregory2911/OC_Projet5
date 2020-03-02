@@ -34,7 +34,7 @@
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
 					{
 						echo '<p id="helloMember">Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
-						if ($_SESSION['isAdmin'] = 1)
+						if ($_SESSION['isAdmin'] == 1)
 						{
 							echo '<a class="nav-link" href="backoffice/formPost">BackOffice</a>';
 						}

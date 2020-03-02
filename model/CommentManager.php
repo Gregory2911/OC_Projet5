@@ -67,4 +67,11 @@ class CommentManager extends Manager
         $affectedLines = $this->executeRequete($req, array($commentId));
         return $affectedLines;
     }
+
+    public function validateComment($commentId)
+    {
+        $req = 'update comments set isValide = 1 where comments.id = ?';
+        $affectedLines = $this->executeRequete($req, array($commentId));
+        return $affectedLines;   
+    }
  }

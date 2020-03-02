@@ -130,4 +130,19 @@ class BackofficeControler extends Controler
         $racineWeb = Configuration::get("racineWeb","/");
         header('Location:'. $racineWeb . 'backoffice/getComments');
     }
+
+    public function validateComment()
+    {
+        $commentId = $this->request->getParameter('id');
+        $affectedLines = $this->comment->validateComment($commentId);
+
+        if ($affectedLines === false)
+        {
+            // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+            throw new Exception('Impossible de valider le commentaire.');
+        }
+
+        $racineWeb = Configuration::get("racineWeb","/");
+        header('Location:'. $racineWeb . 'backoffice/getComments');
+    }
 }

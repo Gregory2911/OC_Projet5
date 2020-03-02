@@ -5,36 +5,48 @@
     <p class="titreSectionBlog">Derniers billets du blog :</p>
 
     <div id="blog">
+        <div class="row">
         <?php
+        $nb = 1;
         while ($data = $posts->fetch())
         {
-        ?>
-            <div class="row">
-                <div class="col-lg-5 posts">
-                    <div class="row">
+            
+            if ($nb % 2 == 0)
+            {
+                echo '<div class="col-lg-5 offset-lg-2 posts">';       
+            }
+            else
+            {                
+                echo '<div class="col-lg-5 posts">';    
+            }
+        ?>            
+            
+                <div class="row">
                     <div class="col-lg-12 essai">
                         <a href="frontend/post/<?= $data['id'] ?>">
                             <img src= "view/images/<?=$data['src_photo_mini']?>" id="photoPost">
                         </a>
                     </div>
-                    </div>
-
-                    <h3>
-                        <?= $this->sanitize($data['title']); ?>
-                        <em>le <?= $this->sanitize($data['creation_date_fr']); ?></em>
-                    </h3>                                        
-                    <p class ="postContent">
-                        <?= nl2br($this->sanitize($data['content'])); ?>                                        
-                    </p>                    
-                    <p>
-                        <em><a href="frontend/post/<?= $data['id'] ?>">Commentaires</a></em>
-                    </p>
-                    
                 </div>
+
+                <h3>
+                    <?= $this->sanitize($data['title']); ?>
+                    <em>le <?= $this->sanitize($data['creation_date_fr']); ?></em>
+                </h3>                                        
+                <p class ="postContent">
+                    <?= nl2br($this->sanitize($data['content'])); ?>                                        
+                </p>                    
+                <p>
+                    <em><a href="frontend/post/<?= $data['id'] ?>">Commentaires</a></em>
+                </p>
+                
             </div>
+            
         <?php
+         $nb++;
         }
         $posts->closeCursor();
         ?>
+
     </div>
 </section>
