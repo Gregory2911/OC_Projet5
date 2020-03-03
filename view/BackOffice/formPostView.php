@@ -4,9 +4,7 @@
 
 <div class="container" id="formContact">
 
-    <!--<?php if($message) :?>
-        <?php echo $message; ?>
-    <?php endif;?>-->
+    
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -33,11 +31,7 @@
                             <div class="form-group">
                                 <label for="imgPost">Ajout d'une photo</label>
                                 <input type="file" class="form-control" name="imgPost" id="imgPost" value="" placeholder="Titre du post">
-                            </div>        
-
-                            <div class="form-group">
-                                <!--<div class="g-recaptcha" data-sitekey="<?php echo CLEF_CLIENT; ?>"></div>-->
-                            </div>
+                            </div>                                    
 
                             <div class="mx-auto">
                             <button type="submit" class="btn btn-primary text-right">Enregistrer</button></div>

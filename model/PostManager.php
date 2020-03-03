@@ -8,7 +8,7 @@ class PostManager extends Manager
 {
     public function getPosts()
     {        
-        $req = 'select id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, src_photo_mini FROM posts ORDER BY creation_date DESC LIMIT 0, 5';
+        $req = 'select posts.id, posts.title, posts.content, DATE_FORMAT(posts.creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, posts.src_photo_mini, members.pseudo FROM posts left join members on members.id = posts.author_id ORDER BY creation_date DESC';
         $posts = $this->executeRequete($req);
         return $posts;
     }
@@ -32,5 +32,12 @@ class PostManager extends Manager
         $req = 'update posts set src_photo = ? , src_photo_mini = ? where posts.id = ?';
         $affectedLines = $this->executeRequete($req,array($src_photo,$src_photo_mini,$postId));
         return $affectedLines;        
+    }
+
+    public function deletePost($postId)
+    {
+        $req = 'delete from posts where posts.id = ?';
+        $affectedLines = $this->executeRequete($req,array($postId));
+        return $affectedLines;
     }
 }

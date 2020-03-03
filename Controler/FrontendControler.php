@@ -23,8 +23,7 @@ Class FrontendControler extends Controler
 
     public function listPosts()
     {        
-        $posts = $this->post->getPosts();
-        //$view = new View('listPostsView');
+        $posts = $this->post->getPosts();        
         $this->generateView(array('posts'=>$posts));
     }
 

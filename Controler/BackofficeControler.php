@@ -18,6 +18,12 @@ class BackofficeControler extends Controler
         $_SESSION['admin'] = 1;
     }
 
+    public function listPosts()
+    {
+    	$posts = $this->post->getPosts();        
+        $this->generateView(array('posts'=>$posts));
+    }
+
 	public function formPost()
     {        
         //$view = new View('listPostsView');
@@ -107,6 +113,33 @@ class BackofficeControler extends Controler
             header('Location:'. $racineWeb . 'backoffice/formPost/' . $postId);
     	}
         
+	}
+
+	public function deletePost()
+	{
+		if ($this->request->parameterExists('id'))
+		{
+			$postId = $this->request->getParameter('id');
+			$affectedLines = $this->post->deletePost($postId);
+			if ($affectedLines == false)
+			{
+				throw new Exception("Impossible de supprimer le post");			
+			}
+			else
+			{
+				$racineWeb = Configuration::get("racineWeb","/");
+	            header('Location:'. $racineWeb . 'backoffice/listPosts/');	
+			}
+		}
+		else
+		{
+			throw new Exception("Impossible de supprimer le post");			
+		}
+	}
+
+	public function modifyPost()
+	{
+		$this->generateView(array());
 	}
 
     public function getComments()
