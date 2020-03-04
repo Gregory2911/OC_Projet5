@@ -9,6 +9,12 @@
 	<title><?= $title ?></title>
 	<link href="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="view/style.css" rel="stylesheet">
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+      tinymce.init({
+        selector: '#content'
+      });
+    </script>
 </head>
 
 <body data-spy="scroll" data-target="#essai">
@@ -91,7 +97,7 @@
 						</p>					        
 	        			<p>
 	        				<label class="" for="password">Mot de passe : </label>
-        					<input type="text" name="password" id="password" placeholder="mot de passe"/>
+        					<input type="password" name="password" id="password" placeholder="mot de passe"/>
 						</p>			    
         				<p>
     						<input type="submit" value="Connexion">
@@ -131,7 +137,7 @@
 						</p>					        
 	        			<p>
 	        				<label class="" for="password">Mot de passe : </label>
-        					<input type="text" name="password" id="password" placeholder="mot de passe"/>
+        					<input type="password" name="password" id="password" placeholder="mot de passe"/>
 						</p>			    
         				<p>
     						<input type="submit" value="Inscription">
@@ -179,6 +185,7 @@
 </body>
 
 <script src="public/js/jquery-3.4.1.min.js"></script>
+
 
 <!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>-->
 <script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>

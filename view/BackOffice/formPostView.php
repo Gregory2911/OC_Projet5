@@ -34,7 +34,8 @@
                             </div>                                    
 
                             <div class="mx-auto">
-                            <button type="submit" class="btn btn-primary text-right">Enregistrer</button></div>
+                                <button type="submit" class="btn btn-primary text-right">Enregistrer</button>
+                            </div>
                         </form>
                     </div>
                 </div>
