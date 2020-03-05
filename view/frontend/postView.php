@@ -15,7 +15,8 @@
             </h3>
             
             <p>
-                <?= nl2br($this->sanitize($post['content'])); ?>
+                <!--<?= nl2br($this->sanitize($post['content'])); ?>-->
+                <?=$post['content']?>
             </p>
         </div>
 

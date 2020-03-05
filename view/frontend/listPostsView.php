@@ -1,8 +1,7 @@
 <?php $this->title = 'Mon blog'; ?> <!--1. on definit le titre de la page dans $title. Celui ci sera intégré dans la balise <title> dans le template-->
 
 <section id="monBlog" class="container">             
-    <h1 class="titreSectionBlog">Le blog d'un étudiant OpenClassrooms</h1>
-    <p class="titreSectionBlog">Derniers billets du blog :</p>
+    <h1 class="titreSectionBlog">Le blog d'un étudiant OpenClassrooms</h1>    
 
     <div id="blog">
         <div class="row">
@@ -34,10 +33,10 @@
                     <em>le <?= $this->sanitize($data['creation_date_fr']); ?></em>
                 </h3>                                        
                 <p class ="postContent">
-                    <?= nl2br($this->sanitize($data['content'])); ?>                                        
+                    <?= $data['content']; ?>                                        
                 </p>                    
                 <p>
-                    <em><a href="frontend/post/<?= $data['id'] ?>">Commentaires</a></em>
+                    <em><a href="frontend/post/<?= $data['id'] ?>">Voir plus</a></em>
                 </p>
                 
             </div>
