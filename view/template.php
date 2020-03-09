@@ -31,10 +31,10 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-link" href="frontend/listPosts/#blog">Mon Blog</a>
+				<a class="nav-link" href="frontend/listPosts/#monBlog">Mon Blog</a>
 				<a class="nav-link" href="#">A propos</a>
 				<a class="nav-link" href="#">Mon parcours</a>							
-				<a class="nav-link" href="contact/formContact/#formContact">Contact</a>
+				<a class="nav-link" href="#formContact">Contact</a>
 				<?php
 
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
@@ -72,10 +72,10 @@
 	 	<div class="container-fluid bouton">
 	 		<div class="container">
 		 		<div class="row">			 			
-		 			<a href="frontend/listPosts/#blog" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="programmation festival films plein air"/></a>
-		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btn btn-lg btn-primary photoMenuInscription"><img class="photoMenu" src="view/images/connexion_v3.png" alt="inscription festival films plein air"/></a>
-		 			<a href="#actualités" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="actualites festival films plein air"/></a>			 					 									
-		 			<a href="contact/formContact/#formContact" class="btn btn-lg btn-primary" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="photo festival film plein air"/></a>			
+		 			<a href="frontend/listPosts/#blog" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="programmation festival films plein air"/></a>
+		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="view/images/connexion_v3.png" alt="inscription festival films plein air"/></a>
+		 			<a href="#actualités" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="actualites festival films plein air"/></a>			 					 									
+		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="photo festival film plein air"/></a>			
 		 		</div>
 	 		</div>
 	 	</div>		 	
@@ -90,18 +90,16 @@
         			<button type="button" class="close" data-dismiss="modal">x</button>
       			</div>
      			<div class="modal-body">
-        			<form method="post" action="connexion/connexion">
-        				<p>
-	        				<label class="" for="login">login : </label>
-	        				<input type="text" name="login" id="login" placeholder="login"/>
-						</p>					        
-	        			<p>
-	        				<label class="" for="password">Mot de passe : </label>
-        					<input type="password" name="password" id="password" placeholder="mot de passe"/>
-						</p>			    
-        				<p>
-    						<input type="submit" value="Connexion">
-        				</p>        					
+        			<form method="post" action="connexion/connexion" class="col-lg-12">
+        				<div class="form-group row">
+	        				<label class="col-lg-4 col-4" for="login">login : </label>
+	        				<input class="col-lg-8 col-8" type="text" name="login" id="login" placeholder="login"/>
+						</div>					        
+	        			<div class="form-group row">
+	        				<label class="col-lg-4 col-4" for="password">Mot de passe : </label>
+        					<input class="col-lg-8 col-8" type="password" name="password" id="password" placeholder="mot de passe"/>
+						</div>			            				
+    					<button class="btn btn-primary float-right" type="submit">Se connecter</button>        				        				
        				</form>
        				<button data-toggle="modal" href="#inscription" class="btn btn-primary inscription" id="suivant">Inscription</button>       				
 	      		</div>
@@ -111,39 +109,39 @@
 
 	 <!--Popup d'inscription'-->
   	<div class="modal" id="inscription">
-  		<div class="modal-dialog"> <!--Intégration du formulaire-->
+  		<div class="modal-dialog modal-lg"> <!--Intégration du formulaire-->
     		<div class="modal-content">
       			<div class="modal-header">							        
         			<h4 class="modal-title">Inscription</h4>
         			<button type="button" class="close" data-dismiss="modal">x</button>
       			</div>
-     			<div class="modal-body">
-        			<form method="post" action="connexion/inscription">
-        				<p>
-	        				<label class="" for="prénom">Prénom : </label>
-	        				<input type="text" name="prénom" id="prénom" placeholder="prénom"/>
-						</p>					        						        			
-	        			<p>
-	        				<label class="" for="nom">Nom : </label>
-	        				<input type="text" name="nom" id="nom" placeholder="Nom"/>
-						</p>					        
-	        			<p>
-	        				<label class="sr-only" for="email">Adresse Email</label>
-	        				<input type="email" name="email" id="email" placeholder="Email"/>
-						</p>					        
-        				<p>
-	        				<label class="" for="login">login : </label>
-	        				<input type="text" name="login" id="login" placeholder="login"/>
-						</p>					        
-	        			<p>
-	        				<label class="" for="password">Mot de passe : </label>
-        					<input type="password" name="password" id="password" placeholder="mot de passe"/>
-						</p>			    
-        				<p>
-    						<input type="submit" value="Inscription">
-        				</p>        					
-       				</form>
+      			
+     			<div class="modal-body">     				     			
+        			<form method="post" action="connexion/inscription" class="col-lg-12">        				
+        				<div class="form-group row">
+	        				<label class="col-lg-4 col-4 col-form-label" for="prénom">Prénom : </label>	        				
+	        				<input class="col-lg-8 col-8" type="text" name="prénom" id="prénom" placeholder="Prénom"/>	        				
+						</div>												
+		        		<div class="form-group row">
+	        				<label class="col-lg-4 col-4 col-form-label" for="nom">Nom : </label>	        				
+	        				<input class="col-lg-8 col-8" type="text" name="nom" id="nom" placeholder="Nom"/>										       	        				
+						</div>
+	        			<div class="form-group row">
+	        				<label class="col-lg-4 col-4 col-form-label" for="email">Adresse Email</label>
+	        				<input class="col-lg-8 col-8" type="email" name="email" id="email" placeholder="Email"/>
+						</div>        
+        				<div class="form-group row">
+	        				<label class="col-lg-4 col-4 col-form-label" for="login">login : </label>
+	        				<input class="col-lg-8 col-8" type="text" name="login" id="login" placeholder="login"/>
+						</div>					        
+	        			<div class="form-group row">
+	        				<label class="col-lg-4 col-5 col-form-label" for="password">Mot de passe : </label>
+        					<input class="col-lg-8 col-7" type="password" name="password" id="password" placeholder="mot de passe"/>
+						</div>			            				
+    					<button class="btn btn-primary float-right" type="submit">S'insrire</button>    							
+       				</form>       			       				
        			</div>
+       			
        		</div>
        	</div>
 	</div>								    
@@ -155,8 +153,45 @@
 		}
 	?>
   	<?= $content ?>
+ 	
+ 	<div class="container" id="formContact">
+	    <section class="jumbotron text-center" id="FormContactTitle">
+	        <div class="container">
+	            <h1 class="jumbotron-heading">FORMULAIRE DE CONTACT</h1>       
+	        </div>
+	    </section>
+	    
+	    <div class="row" id="formContact">
+	            <div class="col">
+	                <div class="card mb-4">
+	                    <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Me contacter
+	                    </div>
+	                    <div class="card-body">
+	                        <form action="contact/sendEmail" method="post">
+	                            <div class="form-group">
+	                                <label for="name">Nom</label>
+	                                <input type="text" class="form-control" name="name" id="name" value="" placeholder="Votre nom">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="email">Courriel</label>
+	                                <input type="text" class="form-control" name="email" id="email" value="" placeholder="Votre courriel">
 
- 	<!--Section coordonnées-->
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="message">Message</label>
+	                                <textarea class="form-control" name="message" id="message" rows="6" placeholder="Votre message"></textarea>
+	                            </div>                            
+
+	                            <div class="mx-auto">
+	                            <button type="submit" class="btn btn-primary text-right">Envoyer</button></div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	     </div>
+	</div> 
+
+	<!--Section coordonnées-->
  	<section id="coordonnées">	 		
  		<div class="container">
  			<h2 class="titreSection">Me contacter</h2>
@@ -175,8 +210,6 @@
 	 		</div>
 	 	</div>
  	</section>
-
- 	
 
  	<footer>
  		<p>Grégory AGNAN</p>

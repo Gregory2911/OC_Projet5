@@ -1,18 +1,15 @@
 <div class="container" id="formContact">
 
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">PAGE CONTACT</h1>
-        <p class="lead text-muted mb-0">Page Contact de mon Blog</p>
+    <div class="jumbotron text-center" id="FormContactTitle">
+        <div class="container">
+            <h1 class="jumbotron-heading">FORMULAIRE DE CONTACT</h1>       
+        </div>
     </div>
-</section>
-
     
     <div class="row" id="formContact">
             <div class="col">
                 <div class="card mb-4">
-                    <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Me contacter
-                    </div>
+                    <div class="card-header bg-primary text-white">Me contacter</div>
                     <div class="card-body">
                         <form action="contact/sendEmail" method="post">
                             <div class="form-group">

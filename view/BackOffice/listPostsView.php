@@ -39,7 +39,7 @@
 	 		</div>
 			<!--popup de modification du post-->
 			<div class="modal" id="modifyPost">
-				<div class="modal-dialog"> <!--Intégration du formulaire-->
+				<div class="modal-dialog modal-lg"> <!--Intégration du formulaire-->
 					<div class="modal-content">
 	  					<div class="modal-header">							        
 		    				<h4 class="modal-title">Modification d'un post</h4>

@@ -18,8 +18,31 @@ body
 
 a:hover
 {
-	color: #3726a6 !important;
+	color: #f20505 !important;
 	text-decoration: none;
+}
+
+section
+{
+	margin-top: 20px;
+}
+
+.jumbotron
+{
+	background-color: #fdd400;	
+
+}
+
+.btn-primary
+{
+	background-color: #3726a6;
+	border-color: #3726a6;
+}
+
+.btn-primary:hover
+{
+	background-color: #f20505;
+	border-color: #f20505;
 }
 
 /*MENU DE NAVIGATION*/
@@ -46,11 +69,6 @@ a:hover
 	display: block;
 }
 
-.navbar-light .navbar-nav .nav-link.active
-{
-	color: #7ff5bb;
-}
-
 #sloganMenu
 {
 	margin: auto;	
@@ -63,12 +81,6 @@ header
 {
 	color: black;
 	margin-bottom: 50px;
-}
-
-#topbar
-{
-	border-bottom: 2px #d1bbac solid;
-	border-top: 4px #d1bbac solid;
 }
 
 #sloganHeader
@@ -119,7 +131,7 @@ header
 	background-color: #fdd400;
 }
 
-.btn.btn-lg.btn-primary
+.btnEntete
 {
 	height: 125px;
 	width: 125px;
@@ -133,7 +145,7 @@ header
 	text-align: center;
 }
 
-.btn.btn-lg.btn-primary:hover
+.btnEntete:hover
 {
 	color: white;
 	background-color: #3726a6;	
@@ -189,4 +201,14 @@ footer
 #commentDate
 {
 	font-size: 10px;
+}
+
+/*Form comment*/
+#commentForm
+{
+	height: 200px;
+}
+.bg-primary
+{
+	background-color: #3726a6 !important;
 }

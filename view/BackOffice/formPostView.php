@@ -15,9 +15,9 @@
     
     <div class="row" id="formContact">
             <div class="col">
-                <div class="card mb-4">                                    
-                    <div class="card-body">
-                        <form action="backoffice/addPost" method="post" enctype="multipart/form-data">
+                <!--<div class="card mb-4">                                    -->
+                    <!--><div class="card-body">-->
+                        <form action="backoffice/addPost" method="post" enctype="multipart/form-data" class="form-horizontal col-lg-6">
                             <div class="form-group">
                                 <label for="title">Titre</label>
                                 <input type="text" class="form-control" name="title" id="title" value="" placeholder="Titre du post">
@@ -37,8 +37,8 @@
                                 <button type="submit" class="btn btn-primary text-right">Enregistrer</button>
                             </div>
                         </form>
-                    </div>
-                </div>
+                    <!--</div>-->
+                <!--</div>-->
             </div>
      </div>
  
