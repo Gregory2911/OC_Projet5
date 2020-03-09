@@ -31,7 +31,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-link" href="frontend/listPosts/#monBlog">Mon Blog</a>
+				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>
 				<a class="nav-link" href="#">A propos</a>
 				<a class="nav-link" href="#">Mon parcours</a>							
 				<a class="nav-link" href="#formContact">Contact</a>
@@ -69,10 +69,10 @@
 	 	</div>
 
 	 	<!--Boutons liens entête-->
-	 	<div class="container-fluid bouton">
+	 	<div class="container-fluid bouton" id="ancrePrincipale">
 	 		<div class="container">
 		 		<div class="row">			 			
-		 			<a href="frontend/listPosts/#blog" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="programmation festival films plein air"/></a>
+		 			<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="programmation festival films plein air"/></a>
 		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="view/images/connexion_v3.png" alt="inscription festival films plein air"/></a>
 		 			<a href="#actualités" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="actualites festival films plein air"/></a>			 					 									
 		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="photo festival film plein air"/></a>			

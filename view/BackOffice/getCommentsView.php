@@ -16,12 +16,14 @@
     <?php
       while ($data = $comments->fetch())
       {
+        $date = new DateTime($data['comment_date']);
+        $dateFR = $date->format('d/m/Y');
         if ($data['isValide'] == 1)
         {
     ?>
       <tr class="table-success">
-        <td><?= $data['pseudo']?></td>
-        <td><?= $data['comment_date']?></td>
+        <td><?= $data['pseudo']?></td>              
+        <td><?= $dateFR ?></td>
         <td><?= $data['comment']?></td>
         <td><?= $data['title']?></td>              
       </tr>
@@ -32,10 +34,10 @@
       ?>
       <tr class="table-danger">        
         <td><?= $data['pseudo']?></td>
-        <td><?= $data['comment_date']?></td>
+        <td><?= $dateFR ?></td>
         <td><?= $data['comment']?></td>
         <td><?= $data['title']?></td>
-        <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#listComments"><img src="view/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#listComments"><img src="view/images/Valider.png"></a></td>
+        <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="view/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="view/images/Valider.png"></a></td>
       </tr>
     <?php
     }

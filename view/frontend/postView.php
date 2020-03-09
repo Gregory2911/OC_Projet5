@@ -6,7 +6,7 @@
         <?= $this->sanitize($post['title']); ?>
     </h1>
 
-        <p><a href="index.php">Retour à la liste des billets</a></p>
+        <p><a href="index.php/#ancrePrincipale">Retour à la liste des billets</a></p>
 
         <div class="news">
             <img src= "view/images/<?=$post['src_photo']?>" id="photoPost">
@@ -58,10 +58,38 @@
                                 if ($comment['member_id'] == $_SESSION['id'])
                                 {                        
                             ?>
-                                <a href="frontend/comment/<?= $comment['id'] ?>">Modifier</a>
-                            <?php }} ?>
-                        </p>
+                                <!--<a href="frontend/comment/<?= $comment['id'] ?>">Modifier</a>-->
+                                <a data-toggle="modal" href="#modifyComment">Modifier</a>
+                            <?php }} ?>                        
                         <p><?= nl2br($this->sanitize($comment['comment'])); ?></p>
+                    </div>
+                </div>
+                <!--popup de modification d'un commentaire-->
+                <div class="modal" id="modifyComment">
+                    <div class="modal-dialog modal-lg"> <!--Intégration du formulaire-->
+                        <div class="modal-content">
+                            <div class="modal-header">                                  
+                                <h4 class="modal-title">Modification d'un commentaire</h4>
+                                <button type="button" class="close" data-dismiss="modal">x</button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="frontend/updateComment/<?= $comment['id'] ?>/#ancrePrincipale" method="post" enctype="multipart/form-data">
+                                    <!--<div class="form-group row">
+                                        <label class="col-lg-4 col-4" for="author">Auteur</label><br />
+                                        <input class="col-lg-8 col-8" type="text" id="author" name="author" value="<?=$this->sanitize($comment['author']); ?>" />
+                                    </div>-->
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-4" for="comment">Commentaire</label><br />
+                                        <textarea class="col-lg-8 col-8" id="commentFormTextArea" name="comment"><?= $this->sanitize($comment['comment']);?></textarea>
+                                    </div>                                   
+
+                                    <div class="mx-auto">
+                                        <button type="submit" class="btn btn-primary float-right">Modifier</button>
+                                    </div>
+                                </form>                     
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php
@@ -77,10 +105,10 @@
         </div>        
         -->
         <div id="formComment">
-            <form action="frontend/addComment/<?= $post['id'] ?>" method="post" class="col-lg-12">            
+            <form action="frontend/addComment/<?= $post['id'] ?>/#ancrePrincipale" method="post" class="col-lg-12">            
                 <div class="form-group">
                     <!--<label for="comment">Commentaire</label><br />-->
-                    <textarea class="form-control" id="commentForm" name="comment" placeholder="Ecrivez votre commentaire içi."></textarea>
+                    <textarea class="form-control" id="commentFormTextArea" name="comment" placeholder="Ecrivez votre commentaire içi."></textarea>
                 </div>
                 
                 <button class="btn btn-primary" type="submit">Valider</button>

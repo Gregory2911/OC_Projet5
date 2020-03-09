@@ -36,7 +36,7 @@
                     <?= $data['content']; ?>                                        
                 </p>                    
                 <p>
-                    <em><a href="frontend/post/<?= $data['id'] ?>">Voir plus</a></em>
+                    <em><a href="frontend/post/<?= $data['id'] ?>/#ancrePrincipale">Voir plus</a></em>
                 </p>
                 
             </div>
