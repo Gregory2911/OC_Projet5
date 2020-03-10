@@ -3,11 +3,13 @@
 require_once('framework/Controler.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('Controler/ImageControler.php');
 
 class BackofficeControler extends Controler
 {
 	private $post;
     private $comment;
+    private $image;
 
     private static $extensionImgValide = array('jpg', 'jpeg', 'png');
 
@@ -15,6 +17,7 @@ class BackofficeControler extends Controler
     {
         $this->post = new PostManager();
         $this->comment = new CommentManager();
+        $this->image = new ImageControler();
         $_SESSION['admin'] = 1;
     }
 
@@ -99,15 +102,16 @@ class BackofficeControler extends Controler
             throw new Exception('Impossible d\'ajouter le post.');
     	}
     	else 
-        {
-            //$racineWeb = Configuration::get("racineWeb","/");
-    		//header('Location:'. $racineWeb . 'frontend/post/' . $postId);
+        {            
             $lastPostId = $this->post->lastInsertId();
             $fileName = "post" . $lastPostId . "." . $fileExtension;
+            $newFile = mkdir('../photoPost/' . $lastPostId);
+                                
+            move_uploaded_file($imgPost['tmp_name'], '../photoPost/' . $lastPostId . "/" . $fileName);            
             
-            move_uploaded_file($imgPost['tmp_name'], '../photoPost/' . $fileName);
+            $fileMiniName = $this->image->resizeImage($fileName, $fileExtension, $lastPostId);
 
-            $affectedLines = $this->post->addImgPost($lastPostId,$fileName,$fileName);
+            $affectedLines = $this->post->addImgPost($lastPostId,$fileName,$fileMiniName);
 
             $racineWeb = Configuration::get("racineWeb","/");
             header('Location:'. $racineWeb . 'backoffice/formPost/' . $postId);

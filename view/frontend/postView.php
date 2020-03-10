@@ -9,7 +9,7 @@
         <p><a href="index.php/#ancrePrincipale">Retour à la liste des billets</a></p>
 
         <div class="news">
-            <img src= "view/images/<?=$post['src_photo']?>" id="photoPost">
+            <img src= "../photoPost/<?=$post['id'] ?>/<?=$post['src_photo']?>" id="photoPost">
             <h3>
                 <em>Posté le <?= $post['creation_date_fr'] ?></em>
             </h3>

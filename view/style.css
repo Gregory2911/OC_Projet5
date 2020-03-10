@@ -212,3 +212,9 @@ footer
 {
 	background-color: #3726a6 !important;
 }
+
+/*Form post backoffice*/
+.form-group .contentFormTextArea
+{
+	height: 700px;	
+}

@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-lg-12 essai">
                         <a href="frontend/post/<?= $data['id'] ?>">
-                            <img src= "view/images/<?=$data['src_photo_mini']?>" id="photoPost">
+                            <img src= "../photoPost/<?=$data['id'] ?>/<?=$data['src_photo_mini']?>" id="photoPost">
                         </a>
                     </div>
                 </div>

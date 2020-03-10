@@ -3,6 +3,8 @@
 require_once 'Request.php';
 require_once 'View.php';
 
+
+
 class Router
 {
 	//Route une requête entrante ; exécute l'action associée
@@ -20,10 +22,24 @@ class Router
 		}
 		catch (Exception $e)
 		{
-			echo 'Erreur : ' . $e->getmessage();
-		    /* amelioration de la présentation de l'erreur
+			//echo 'Erreur : ' . $e->getmessage();
+		    // amelioration de la présentation de l'erreur
 		    $errorMessage = $e->getMessage();
-		    require('view/errorView.php');*/
+		    ?>		    
+		   <script type="text/javascript">
+     
+    <!--
+        window.onload=function() // Au chargement de la page
+{
+  window.open('View/error.php','fenetre','toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,copyhistory=no,menuBar=no,width=600,height=200');
+  return(false)  // On ouvre la popup
+}
+     
+    //-->
+</script>
+
+
+        <?php
 		}
 	}
 
