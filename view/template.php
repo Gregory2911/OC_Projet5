@@ -90,7 +90,7 @@
         			<button type="button" class="close" data-dismiss="modal">x</button>
       			</div>
      			<div class="modal-body">
-        			<form method="post" action="connexion/connexion" class="col-lg-12">
+        			<form id="formEssai" method="post" action="connexion/connexion" class="col-lg-12">
         				<div class="form-group row">
 	        				<label class="col-lg-4 col-4" for="login">login : </label>
 	        				<input class="col-lg-8 col-8" type="text" name="login" id="login" placeholder="login"/>
@@ -211,6 +211,18 @@
 	 	</div>
  	</section>
 
+ 	<div class="col-lg-4">
+		  <form id="essai" class="form-inline well">
+		    <div class="form-group">
+		      <label class="sr-only" for="text">Saisie</label>
+		      <input id="text" type="text" class="form-control" placeholder="Texte ici">
+		      <span class="help-block" style="display: none">Corrigez l'erreur s'il vous plait</span>
+		    </div>
+		    <button type="submit" class="btn btn-primary pull-right">Envoyer</button>		  	
+		  </form>
+		</div>
+		
+
  	<footer>
  		<p>Grégory AGNAN</p>
  	</footer>
@@ -223,6 +235,18 @@
 <!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>-->
 <script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
 <!--<script src="bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.js"></script>-->
+
+		<script>
+		  $(function(){
+		    $("form").on("submit", function() {
+		      if($("#text").val().length < 4) {
+		        $("div.form-group").addClass("has-error");
+		        $("span.help-block").show("slow").delay(4000).hide("slow");
+		        return false;
+		      }
+		    });
+		  });
+		</script>
 <script>
 	$(function (){
 		$("#btnProg").popover({placement:'bottom',trigger:'hover'}); 
@@ -234,6 +258,16 @@
 	$("#suivant").click(function() {
 		$('#connexion').modal('hide');
 		//$('#inscription').modal('show');		
+	});
+
+	$(function(){
+	    $("formEssai").on("submit", function() {
+	      if($("input").val().length < 4) {
+	        $("div.form-group row").addClass("has-error");
+	        $("div.alert").show("slow").delay(4000).hide("slow");
+	        return false;
+	      }
+	    });
 	});
 
 </script>

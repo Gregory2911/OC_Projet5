@@ -35,7 +35,7 @@ Class FrontendControler extends Controler
 	        $post = $this->post->getPost($postId);
 	        $comments = $this->comment->getComments($postId);
             $nb = $this->comment->countComments($postId);
-	        $view = new View('postView');
+	        //$view = new View('postView');
 	        $this->generateView(array('post'=>$post, 'comments'=> $comments, 'nbComments' => $nb));
             //throw new Exception($nb);
 	    }

@@ -24,22 +24,7 @@ class Router
 		{
 			//echo 'Erreur : ' . $e->getmessage();
 		    // amelioration de la présentation de l'erreur
-		    $errorMessage = $e->getMessage();
-		    ?>		    
-		   <script type="text/javascript">
-     
-    <!--
-        window.onload=function() // Au chargement de la page
-{
-  window.open('View/error.php','fenetre','toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,copyhistory=no,menuBar=no,width=600,height=200');
-  return(false)  // On ouvre la popup
-}
-     
-    //-->
-</script>
-
-
-        <?php
+		    $errorMessage = $e->getMessage();	    		    
 		}
 	}
 
