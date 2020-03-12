@@ -11,16 +11,16 @@
 	<link href="view/style.css" rel="stylesheet">
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
-      tinymce.init({
-        selector: '#content'
-      });
+		tinymce.init({
+			selector: '#content'
+		});
     </script>
 </head>
 
 <body data-spy="scroll" data-target="#essai">
 
 	<!--Menu de navigation-->
-	<nav id="essai" class="navbar navbar-light bg-light navbar-expand-lg sb-navbar sticky-top">
+	<nav id="mainNav" class="navbar navbar-light bg-light navbar-expand-lg sb-navbar sticky-top">
 		<a class="navbar-brand" id="logo" href="frontend/listPosts">
 			<!--<img src="header.png" alt="logo festival film plein air">-->
 			<h1 id="sloganMenu"> | Grégory AGNAN | </h1>
@@ -78,7 +78,7 @@
 		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="photo festival film plein air"/></a>			
 		 		</div>
 	 		</div>
-	 	</div>		 	
+	 	</div>	 	
   	</header>
 
   	<!--Popup de connexion-->
@@ -212,15 +212,15 @@
  	</section>
 
  	<div class="col-lg-4">
-		  <form id="essai" class="form-inline well">
-		    <div class="form-group">
-		      <label class="sr-only" for="text">Saisie</label>
-		      <input id="text" type="text" class="form-control" placeholder="Texte ici">
-		      <span class="help-block" style="display: none">Corrigez l'erreur s'il vous plait</span>
-		    </div>
-		    <button type="submit" class="btn btn-primary pull-right">Envoyer</button>		  	
-		  </form>
-		</div>
+		<form id="essai" class="form-inline well">
+			<div class="form-group">
+			  <label class="sr-only" for="text">Saisie</label>
+			  <input id="text" type="text" class="form-control" placeholder="Texte ici">
+			  <span class="help-block" style="display: none">Corrigez l'erreur s'il vous plait</span>
+			</div>
+			<button type="submit" class="btn btn-primary pull-right">Envoyer</button>		  	
+		</form>
+	</div>
 		
 
  	<footer>
@@ -232,8 +232,8 @@
 <script src="public/js/jquery-3.4.1.min.js"></script>
 
 
-<!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>-->
-<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
+<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>-->
 <!--<script src="bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.js"></script>-->
 
 		<script>
@@ -249,7 +249,7 @@
 		</script>
 <script>
 	$(function (){
-		$("#btnProg").popover({placement:'bottom',trigger:'hover'}); 
+		$("a").popover({placement:'bottom',trigger:'hover'}); 
 		$("#btnPhoto").popover({placement:'bottom',trigger:'hover'}); 
 		$("#btnInscription").popover({placement:'bottom',trigger:'hover'});
 		$("#btnNews").popover({placement:'bottom',trigger:'hover'});  
@@ -260,15 +260,15 @@
 		//$('#inscription').modal('show');		
 	});
 
-	$(function(){
-	    $("formEssai").on("submit", function() {
+	/*$(function(){
+	    $("#essai").on("submit", function() {
 	      if($("input").val().length < 4) {
-	        $("div.form-group row").addClass("has-error");
+	        $("div.form-group").addClass("has-error");
 	        $("div.alert").show("slow").delay(4000).hide("slow");
 	        return false;
 	      }
 	    });
-	});
+	});*/
 
 </script>
 </html>
