@@ -22,9 +22,9 @@ class Router
 		}
 		catch (Exception $e)
 		{
-			//echo 'Erreur : ' . $e->getmessage();
+			echo 'Erreur : ' . $e->getmessage();
 		    // amelioration de la présentation de l'erreur
-		    $errorMessage = $e->getMessage();	    		    
+		    //$errorMessage = $e->getMessage();	    		    
 		}
 	}
 

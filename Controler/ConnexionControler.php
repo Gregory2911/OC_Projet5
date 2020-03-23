@@ -1,8 +1,9 @@
 <?php
-session_start();
+//session_start();
 //require_once('framework/Configuration.php');
 require_once('framework/Controler.php');
 require_once('model/MemberManager.php');
+require_once('framework/Member.php');
 
 class ConnexionControler extends Controler
 {
@@ -15,52 +16,62 @@ class ConnexionControler extends Controler
 	}
 
 	public function connexion()
-	{
-		/*if (empty($_POST['login']) || empty($_POST['password']))
-		{
-			header("Location: index.php");
-		}*/
+	{		
 		if ($this->request->parameterExists("login") && $this->request->parameterExists("password"))
 		{
 			$pseudo = $this->request->getParameter("login");
-			$password = $this->request->getParameter("password");			
-			$member = $this->member->getMember($pseudo, $password);
-			$data = $member->fetch();
-			if (!empty($data))
+			$password = $this->request->getParameter("password");		
+
+			$getMember = $this->member->getMember($pseudo, $password);			
+			//var_dump($getMember);
+			if (!empty($getMember))
 			{
-				if ($data['isAdmin'] == 1)
+				$memberConnect = new Member($getMember);
+				$isAdmin = $memberConnect->isAdmin();				
+				$idMember = $memberConnect->id();
+
+				$pseudoMember = $memberConnect->pseudo();										
+				
+				if (!empty($idMember) && !empty($pseudoMember))
 				{
-					//Connexion administrateur
-					$_SESSION['isAdmin'] = 1;
+					//Initialisation d'une session								
+					$_SESSION['id'] = $idMember;
+					$_SESSION['pseudo'] = $pseudoMember;
+					$_SESSION['isAdmin'] = $isAdmin;					
+					
+					$racineWeb = Configuration::get("racineWeb","/");
+					header("Location:" . $racineWeb . "index.php");
 				}
 				else
 				{
-					$_SESSION['isAdmin'] = 0;	
-				}
-				//Initialisation d'une session								
-				$_SESSION['id'] = $data['id'];
-				$_SESSION['pseudo'] = $data['pseudo'];																
-				$member->closeCursor();		
-				//throw new Exception($_SESSION['pseudo']);
+					throw new Exception("Identifiant ou mot de passe incorrect.");								
+				}	
 			}
 			else
 			{
 				throw new Exception("Identifiant ou mot de passe incorrect.");								
-			}
+			}			
+		}
+		else
+		{
+			throw new Exception("Identifiant ou mot de passe incorrect.");								
 		}		
-		$racineWeb = Configuration::get("racineWeb","/");
-		header("Location:" . $racineWeb . "index.php");
+		
 	}
 
 	public function inscription()
 	{		
-		$prenom = $this->request->getParameter('prénom');
-		$nom = $this->request->getParameter('nom');
-		$email = $this->request->getParameter('email');
-		$login = $this->request->getParameter('login');
-		$password = $this->request->getParameter('password');
-		$member = $this->member->addMember($prenom,$nom,$email,$login,$password);		
-		$member = $this->member->getMember($login,$password);
+		$dataNewMember['prenom'] = $this->request->getParameter('prénom');
+		$dataNewMember['nom'] = $this->request->getParameter('nom');
+		$dataNewMember['email'] = $this->request->getParameter('email');
+		$dataNewMember['pseudo'] = $this->request->getParameter('login');
+		$dataNewMember['password'] = $this->request->getParameter('password');
+
+		$newMember = new Member($dataNewMember);
+
+		$affectedLine = $this->member->addMember($newMember);		
+		/*$member = $this->member->getMember($login,$password);
+
 		$data = $member->fetch();
 		if (empty($data))
 		{
@@ -72,9 +83,22 @@ class ConnexionControler extends Controler
 			$_SESSION['id'] = $data['id'];
 			$_SESSION['pseudo'] = $data['pseudo'];							
 			$member->closeCursor();			
-		}
-		$racineWeb = Configuration::get("racineWeb","/");
-		header("Location:" . $racineWeb . "index.php");
+		}*/
+
+		if ($affectedLines === false)
+        {        		
+            throw new Exception('Un problème est survenu lors de votre inscription.');
+    	}
+    	else
+    	{
+    		$_SESSION['id'] = $newMember->id();
+			$_SESSION['pseudo'] = $newMember->pseudo();		
+			$_SESSION['isAdmin'] = $newMember->isAdmin();		
+
+    		$racineWeb = Configuration::get("racineWeb","/");
+			header("Location:" . $racineWeb . "index.php");	
+    	}
+		
 	}
 
 	public function deconnexion()

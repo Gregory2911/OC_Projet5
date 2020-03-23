@@ -1,6 +1,3 @@
-<?php
-//session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -211,7 +208,7 @@
 	 	</div>
  	</section>
 
- 	<div class="col-lg-4">
+ 	<!--<div class="col-lg-4">
 		<form id="essai" class="form-inline well">
 			<div class="form-group">
 			  <label class="sr-only" for="text">Saisie</label>
@@ -220,7 +217,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary pull-right">Envoyer</button>		  	
 		</form>
-	</div>
+	</div>-->
 		
 
  	<footer>
@@ -237,7 +234,7 @@
 <!--<script src="bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.js"></script>-->
 
 		<script>
-		  $(function(){
+		  /*$(function(){
 		    $("form").on("submit", function() {
 		      if($("#text").val().length < 4) {
 		        $("div.form-group").addClass("has-error");
@@ -245,7 +242,7 @@
 		        return false;
 		      }
 		    });
-		  });
+		  });*/
 		</script>
 <script>
 	$(function (){
