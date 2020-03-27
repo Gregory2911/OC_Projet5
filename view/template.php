@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<base href="<?= $racineWeb ?>">
 	<title><?= $title ?></title>
-	<link href="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="view/style.css" rel="stylesheet">
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
@@ -29,8 +29,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
 				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>
-				<a class="nav-link" href="#">A propos</a>
-				<a class="nav-link" href="#">Mon parcours</a>							
+				<a class="nav-link" href="#">À propos</a>										
 				<a class="nav-link" href="#formContact">Contact</a>
 				<?php
 
@@ -149,6 +148,7 @@
 			include ('BackOffice/menuBackOffice.php');
 		}
 	?>
+
   	<?= $content ?>
  	
  	<div class="container" id="formContact">
@@ -196,10 +196,7 @@
 	 			<div class="col-lg-6">		 				
 	 				<strong>Grégory AGNAN</strong>
 	 				<p>01 impasse des jardins de coavou<br/>22980 Vildé Guingalan</p>
-	 				<p>06 43 80 11 24</p>
-	 				<p>
-	 					<a href="mailto:contact@filmsdepleinair.org">contact@filmsdepleinair.org</a>
-	 				</p>
+	 				<p>06 43 80 11 24</p>	 				
 	 			</div>
 	 			<div class="col-lg-6">
 	 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.8735531366574!2d2.30676631580437!3d48.87968700716066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fbe98f714c3%3A0xe62425fddeddc402!2sParc%20Monceau!5e0!3m2!1sfr!2sfr!4v1570031727777!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -226,24 +223,13 @@
 
 </body>
 
-<script src="public/js/jquery-3.4.1.min.js"></script>
+<script src="vendor/components/jquery/jquery.min.js"></script>
 
 
-<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>-->
 <!--<script src="public/bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>-->
-<!--<script src="bootstrap-4.3.1/bootstrap-4.3.1/dist/js/bootstrap.js"></script>-->
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-		<script>
-		  /*$(function(){
-		    $("form").on("submit", function() {
-		      if($("#text").val().length < 4) {
-		        $("div.form-group").addClass("has-error");
-		        $("span.help-block").show("slow").delay(4000).hide("slow");
-		        return false;
-		      }
-		    });
-		  });*/
-		</script>
 <script>
 	$(function (){
 		$("a").popover({placement:'bottom',trigger:'hover'}); 
@@ -256,16 +242,6 @@
 		$('#connexion').modal('hide');
 		//$('#inscription').modal('show');		
 	});
-
-	/*$(function(){
-	    $("#essai").on("submit", function() {
-	      if($("input").val().length < 4) {
-	        $("div.form-group").addClass("has-error");
-	        $("div.alert").show("slow").delay(4000).hide("slow");
-	        return false;
-	      }
-	    });
-	});*/
 
 </script>
 </html>
