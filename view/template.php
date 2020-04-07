@@ -16,6 +16,17 @@
 
 <body data-spy="scroll" data-target="#essai">
 
+	<!--topbar-->
+	<div class="container-fluid">	  			  		
+		<div class="row"  id="topbar">			
+			<div class="offset-lg-4 col-lg-4 btn_reseaux_sociaux">	  					
+				<a class="img_reseaux_sociaux" href="#"><img src="view/images/facebook.png" alt="facebook"/></a>
+				<a class="img_reseaux_sociaux" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="view/images/linkedin.png" alt="linkedin"/></a>
+				<a class="img_reseaux_sociaux" href="#"><img src="view/images/git.png" alt="git"/></a>
+			</div>					
+		</div>
+	</div>  		
+
 	<!--Menu de navigation-->
 	<nav id="mainNav" class="navbar navbar-light bg-light navbar-expand-lg sb-navbar sticky-top">
 		<a class="navbar-brand" id="logo" href="frontend/listPosts">
@@ -31,21 +42,29 @@
 				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>
 				<a class="nav-link" href="#">À propos</a>										
 				<a class="nav-link" href="#formContact">Contact</a>
-				<?php
-
+				<?php										
 					if (isset($_SESSION) && !empty($_SESSION['pseudo']))
-					{
-						echo '<p id="helloMember">Bonjour '. $this->sanitize($_SESSION['pseudo']) .' !</p>';
+					{						
 						if ($_SESSION['isAdmin'] == 1)
 						{
 							echo '<a class="nav-link" href="backoffice/formPost">BackOffice</a>';
 						}
-						echo '<a class="nav-link" href="connexion/deconnexion">Deconnexion</a>';
+						?>
+						
+						<div class="btn-group">
+							<button id="helloMember" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    							<img src="view/images/avatar_menu.png">
+  							</button>
+  							<div class="dropdown-menu dropdown-menu-right">
+    							<a class="dropdown-item" href="connexion/deconnexion">Deconnexion</a>
+  							</div>
+						</div>
+					<?php
 					}
 					else
 					{
 						echo '<a class="nav-link" data-toggle="modal" href="#connexion">Se connecter</a>';
-					}					
+					}
 				?>
 				
 			</div>
@@ -59,7 +78,7 @@
 			<div class="row d-none d-lg-block"  id="sloganHeader">
 				<div class="offset-lg-6 col-lg-6">
 					<h2>Grégory AGNAN</h2>
-					<p>| Développeur PHP Symfony |
+					<p>| Développeur PHP Symfony |</p>
 				</div>
 			</div>		  		
 	 	</div>
@@ -68,10 +87,10 @@
 	 	<div class="container-fluid bouton" id="ancrePrincipale">
 	 		<div class="container">
 		 		<div class="row">			 			
-		 			<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="programmation festival films plein air"/></a>
-		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="view/images/connexion_v3.png" alt="inscription festival films plein air"/></a>
-		 			<a href="#actualités" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="actualites festival films plein air"/></a>			 					 									
-		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="photo festival film plein air"/></a>			
+		 			<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="blog de Grégory AGNAN"/></a>
+		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="view/images/connexion_v3.png" alt="connexion"/></a>
+		 			<a href="../CV.pdf" target="_blank" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="cv de Grégory AGNAN"/></a>			 					 									
+		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="contact"/></a>			
 		 		</div>
 	 		</div>
 	 	</div>	 	
@@ -150,60 +169,6 @@
 	?>
 
   	<?= $content ?>
- 	
- 	<div class="container" id="formContact">
-	    <section class="jumbotron text-center" id="FormContactTitle">
-	        <div class="container">
-	            <h1 class="jumbotron-heading">FORMULAIRE DE CONTACT</h1>       
-	        </div>
-	    </section>
-	    
-	    <div class="row" id="formContact">
-	            <div class="col">
-	                <div class="card mb-4">
-	                    <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Me contacter
-	                    </div>
-	                    <div class="card-body">
-	                        <form action="contact/sendEmail" method="post">
-	                            <div class="form-group">
-	                                <label for="name">Nom</label>
-	                                <input type="text" class="form-control" name="name" id="name" value="" placeholder="Votre nom">
-	                            </div>
-	                            <div class="form-group">
-	                                <label for="email">Courriel</label>
-	                                <input type="text" class="form-control" name="email" id="email" value="" placeholder="Votre courriel">
-
-	                            </div>
-	                            <div class="form-group">
-	                                <label for="message">Message</label>
-	                                <textarea class="form-control" name="message" id="message" rows="6" placeholder="Votre message"></textarea>
-	                            </div>                            
-
-	                            <div class="mx-auto">
-	                            <button type="submit" class="btn btn-primary text-right">Envoyer</button></div>
-	                        </form>
-	                    </div>
-	                </div>
-	            </div>
-	     </div>
-	</div> 
-
-	<!--Section coordonnées-->
- 	<section id="coordonnées">	 		
- 		<div class="container">
- 			<h2 class="titreSection">Me contacter</h2>
-	 		<div class="row">	 			
-	 			<div class="col-lg-6">		 				
-	 				<strong>Grégory AGNAN</strong>
-	 				<p>01 impasse des jardins de coavou<br/>22980 Vildé Guingalan</p>
-	 				<p>06 43 80 11 24</p>	 				
-	 			</div>
-	 			<div class="col-lg-6">
-	 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.8735531366574!2d2.30676631580437!3d48.87968700716066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fbe98f714c3%3A0xe62425fddeddc402!2sParc%20Monceau!5e0!3m2!1sfr!2sfr!4v1570031727777!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-	 			</div>
-	 		</div>
-	 	</div>
- 	</section>
 
  	<!--<div class="col-lg-4">
 		<form id="essai" class="form-inline well">
@@ -218,7 +183,18 @@
 		
 
  	<footer>
- 		<p>Grégory AGNAN</p>
+ 		<div class="container-fluid">
+	 		<div class="row">
+		 		<div class="col-lg-6">
+		 			<p>Grégory AGNAN</p>
+		 		</div>
+		 		<div class="col-lg-6">
+		 			<a class="img_reseaux_sociaux_footer" href="#"><img src="view/images/facebook.png" alt="facebook"/></a>
+					<a class="img_reseaux_sociaux_footer" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="view/images/linkedin.png" alt="linkedin"/></a>
+					<a class="img_reseaux_sociaux_footer" href="#"><img src="view/images/git.png" alt="git"/></a>
+		 		</div>
+		 	</div>
+		</div>
  	</footer>
 
 </body>

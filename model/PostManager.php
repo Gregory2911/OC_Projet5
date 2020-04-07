@@ -8,14 +8,14 @@ class PostManager extends Manager
 {
     public function getPosts()
     {        
-        $req = 'select posts.id, posts.title, posts.content, DATE_FORMAT(posts.creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, posts.src_photo_mini, members.pseudo FROM posts left join members on members.id = posts.author_id ORDER BY creation_date DESC';
+        $req = 'select posts.id, posts.title, left(posts.content,150) as content, DATE_FORMAT(posts.creation_date, \'%d/%m/%Y\') AS creation_date_fr, posts.src_photo_mini, members.pseudo FROM posts left join members on members.id = posts.author_id ORDER BY creation_date DESC';
         $posts = $this->executeRequete($req);
         return $posts;
     }
 
     public function getPost($postId)
     {
-        $req = 'select id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, src_photo FROM posts WHERE id = ?';
+        $req = 'select id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr, src_photo FROM posts WHERE id = ?';
         $post = $this->executeRequete($req,array($postId));
         return $post->fetch();
     }
@@ -39,5 +39,12 @@ class PostManager extends Manager
         $req = 'delete from posts where posts.id = ?';
         $affectedLines = $this->executeRequete($req,array($postId));
         return $affectedLines;
+    }
+
+    public function updatePost($title,$content,$postId)
+    {
+        $req = 'update posts set title = ?, content = ? where posts.id = ?';
+        $affectedLines = $this->executeRequete($req,array($title,$content,$postId));
+        return $affectedLines;   
     }
 }

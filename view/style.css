@@ -9,13 +9,6 @@ body
 	position: relative !important;
 }
 
-.titreSection
-{
-	font-weight: bold;
-	font-size: xx-large;
-	color: #c5bca5;
-}
-
 a:hover
 {
 	color: #f20505 !important;
@@ -25,11 +18,14 @@ a:hover
 section
 {
 	margin-top: 20px;
+	margin-bottom: 100px;
 }
 
 .jumbotron
 {
-	background-color: #fdd400;	
+	/*background-color: #fdd400;*/
+	background-color: white;
+	border: #fdd400 3px solid;
 
 }
 
@@ -43,6 +39,23 @@ section
 {
 	background-color: #f20505;
 	border-color: #f20505;
+}
+
+/*TOPBAR*/
+#topbar
+{
+	background-color: black;
+	border-bottom: 1px #3726a6 solid;
+}
+.btn_reseaux_sociaux
+{
+	margin: auto;
+	text-align: center;
+}
+
+.img_reseaux_sociaux
+{
+	margin-right: 50px !important;
 }
 
 /*MENU DE NAVIGATION*/
@@ -60,20 +73,27 @@ section
 
 .navbar-light .navbar-nav .nav-link 
 {
-	color: #fdd400;
+	/*color: #fdd400;*/
+	color: white;
 }
 
 #helloMember
 {
-	color: #fdd400;	
-	display: block;
+	background-color: black;
+	border: none;
+}
+
+#helloMember:hover
+{
+	background-color: black;
+	border: none;
 }
 
 #sloganMenu
 {
 	margin: auto;	
 	font-size: large;
-	color: #fdd400;
+	color: white;
 }
 
 /*HEADER*/
@@ -85,9 +105,9 @@ header
 
 #sloganHeader
 {
-	/*color : #e8b937;*/
-	
-	color : #fdd400;
+	/*color : #e8b937;*/	
+	/*color : #fdd400;*/
+	color: #fdd400;
 	font-weight: bold;
 }
 
@@ -96,17 +116,10 @@ header
 	margin: auto;
 }
 
-.btn_reseauxsociaux
-{
-	margin: auto;
-	text-align: right;
-	border: 3px white solid;
-}
-
 #headerAccueil
 {
 	color: white;
-	background: url("images/header.jpg") no-repeat fixed;
+	background: url("images/header2.jpg") no-repeat fixed;
 	background-size: cover;
 	height: 500px;	
 	text-align: center;
@@ -135,7 +148,7 @@ header
 {
 	height: 125px;
 	width: 125px;
-	line-height: 95px;
+	line-height: 110px;
 	border-radius: 100%;
 	color: #7ff5bb;
 	background-color: #3726a6;
@@ -150,13 +163,6 @@ header
 	color: white;
 	background-color: #3726a6;	
 	border: 3px #f20505 solid;
-}
-
-footer
-{
-	background-color: black;
-	color: #e0312f;
-	text-align: center;
 }
 
 /*Section listPosts*/
@@ -217,4 +223,25 @@ footer
 .form-group .contentFormTextArea
 {
 	height: 700px;	
+}
+
+/*coordonnées*/
+#googlemap
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*FOOTER*/
+footer
+{
+	background-color: black;
+	color: white;
+	text-align: center;
+	border: 3px solid black;
+}
+
+.img_reseaux_sociaux_footer
+{
+	margin-right: 15px;
 }

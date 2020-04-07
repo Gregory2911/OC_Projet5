@@ -22,7 +22,7 @@
         <?php 
         while ($nbComment = $nbComments->fetch())
         {
-            if ($nbComment['nbComments'] < 1)
+            if ($nbComment['nbComments'] <= 1)
             {
                 ?>             
             	<p><?=$nbComment['nbComments']?> commentaire</p>

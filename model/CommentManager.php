@@ -74,4 +74,11 @@ class CommentManager extends Manager
         $affectedLines = $this->executeRequete($req, array($commentId));
         return $affectedLines;   
     }
+
+    public function deleteComments($postId)
+    {
+        $req = 'delete from comments where comments.post_id = ?';
+        $affectedLines = $this->executeRequete($req, array($postId));
+        return $affectedLines;
+    }
  }
