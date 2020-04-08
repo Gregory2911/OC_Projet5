@@ -57,15 +57,14 @@
                             {
                                 if ($comment['member_id'] == $_SESSION['id'])
                                 {                        
-                            ?>
-                                <!--<a href="frontend/comment/<?= $comment['id'] ?>">Modifier</a>-->
-                                <a data-toggle="modal" href="#modifyComment">Modifier</a>
+                            ?>                                
+                                <a data-toggle="modal" href="#modifyComment" data-target="#modifyComment<?=$comment['id'];$comment['comment'];?>">Modifier</a>                              
                             <?php }} ?>                        
                         <p><?= nl2br($this->sanitize($comment['comment'])); ?></p>
                     </div>
                 </div>
                 <!--popup de modification d'un commentaire-->
-                <div class="modal" id="modifyComment">
+                <div class="modal" id="modifyComment<?=$comment['id'];$comment['comment'];?>">
                     <div class="modal-dialog modal-lg"> <!--Intégration du formulaire-->
                         <div class="modal-content">
                             <div class="modal-header">                                  
@@ -73,12 +72,7 @@
                                 <button type="button" class="close" data-dismiss="modal">x</button>
                             </div>
                             <div class="modal-body">
-                                <form action="frontend/updateComment/<?= $comment['id'] ?>/#ancrePrincipale" method="post" enctype="multipart/form-data">
-                                    <!--<div class="form-group row">
-                                        <label class="col-lg-4 col-4" for="author">Auteur</label><br />
-                                        <input class="col-lg-8 col-8" type="text" id="author" name="author" value="<?=$this->sanitize($comment['author']); ?>" />
-                                    </div>-->
-
+                                <form action="frontend/updateComment/<?= $comment['id'] ?>/#ancrePrincipale" method="post" enctype="multipart/form-data">                                    
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-4" for="comment">Commentaire</label><br />
                                         <textarea class="col-lg-8 col-8" id="commentFormTextArea" name="comment"><?= $this->sanitize($comment['comment']);?></textarea>

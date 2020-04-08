@@ -103,7 +103,7 @@ Class FrontendControler extends Controler
         //On modifie le commentaire
         $affectedComment = $this->comment->updateComment($commentId,$comment);
         //On récupère l'id du post en lien avec le comment
-        $postId = $this->comment->getCommentPost($commentId);        
+        $postId = $this->comment->getCommentPost($commentId);    
 
         $racineWeb = Configuration::get("racineWeb","/");
 		header("Location:" . $racineWeb . "frontend/post/".$postId);

@@ -20,10 +20,8 @@
 				<tr>
 					<td><?= $data['pseudo']?></td>
 					<td><?= $data['creation_date_fr']?></td>
-					<td><?= $data['title']?></td>			
-					<!--<td><a data-toggle = "modal" href="#deletePost" data-post-title="<?=$data['title']?>" data-id="<?=$data['id']?>" ><img src="view/images/Supprimer.png"></a><a data-toggle ="modal" href="#modifyPost"><img src="view/images/Valider.png"></a><button data-id="<?=$data['id'];?>"  onclick="$('#dataid').text($(this).data('id')); $('#deletePost').modal('show');">Click me </button></td>-->
-					<!--<td><button data-title="<?=$data['title'];?>" data-id="<?=$data['id']?>" onclick="$('#datatitle').text($(this).data('title')); $('#dataid').text($(this).data('id')); $('#deletePost').modal('show');"><img src="view/images/Supprimer.png"></button><a data-toggle ="modal" href="#modifyPost"><img src="view/images/Valider.png"></a></td>-->
-					<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#deletePost<?=$data['id'];$data['title'];?>"><img src="view/images/Supprimer.png"></button><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modifyPost<?=$data['id'];$data['title'];$data['content'];?>"><img src="view/images/Valider.png"></button></td>
+					<td><?= $data['title']?></td>					
+					<td><button type="button" class="btn" data-toggle="modal" data-target="#deletePost<?=$data['id'];$data['title'];?>"><img src="view/images/Supprimer.png"></button><button type="button" class="btn" data-toggle="modal" data-target="#modifyPost<?=$data['id'];$data['title'];$data['content'];?>"><img src="view/images/Valider.png"></button></td>
 				</tr>
 				<!--Popup de confirmation suppression de post-->				
 				<div class="modal fade" role="dialog" id="deletePost<?=$data['id'];$data['title'];?>">

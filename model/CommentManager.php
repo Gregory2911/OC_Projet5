@@ -41,8 +41,9 @@ class CommentManager extends Manager
     {
         $req = 'select comments.post_id from comments where comments.id = ?';
         $post = $this->executeRequete($req,array($commentId));
-        $post = intval($post->fetch());
-        return $post;
+        $post = $post->fetch();       
+        $postId = $post['post_id'];
+        return $postId;
     }
 
     public function countComments($postId)
