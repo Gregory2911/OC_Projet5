@@ -54,7 +54,7 @@
 
 			                        <div class="form-group">
 			                            <label for="content">Contenu</label>
-			                            <textarea class="form-control" name="content" id="content" rows="6"><?=$data['content'] ?></textarea>
+			                            <textarea class="form-control" name="content" id="content" rows="6"><?=$this->sanitize($data['content']); ?></textarea>
 			                        </div>
 
 			                        <div class="form-group">
