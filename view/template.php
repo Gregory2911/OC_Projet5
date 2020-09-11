@@ -5,7 +5,7 @@
 	<base href="<?= $racineWeb ?>">
 	<title><?= $title ?></title>
 	<link href="vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-	<link href="view/style.css" rel="stylesheet">
+	<link href="public/css/style.css" rel="stylesheet">
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({
@@ -20,21 +20,20 @@
 	<div class="container-fluid">	  			  		
 		<div class="row"  id="topbar">			
 			<div class="offset-lg-4 col-lg-4 btn_reseaux_sociaux">	  					
-				<a class="img_reseaux_sociaux" href="#"><img src="view/images/facebook.png" alt="facebook"/></a>
-				<a class="img_reseaux_sociaux" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="view/images/linkedin.png" alt="linkedin"/></a>
-				<a class="img_reseaux_sociaux" href="#"><img src="view/images/git.png" alt="git"/></a>
+				<a class="img_reseaux_sociaux" href="#"><img src="public/images/facebook.png" alt="facebook"/></a>
+				<a class="img_reseaux_sociaux" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="public/images/linkedin.png" alt="linkedin"/></a>
+				<a class="img_reseaux_sociaux" href="#"><img src="public/images/git.png" alt="git"/></a>
 			</div>					
 		</div>
 	</div>  		
 
 	<!--Menu de navigation-->
 	<nav id="mainNav" class="navbar navbar-light bg-light navbar-expand-lg sb-navbar sticky-top">
-		<a class="navbar-brand" id="logo" href="frontend/listPosts">
-			<!--<img src="header.png" alt="logo festival film plein air">-->
+		<a class="navbar-brand" id="logo" href="frontend/listPosts">			
 			<h1 id="sloganMenu"> | Grégory AGNAN | </h1>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,7 +52,7 @@
 						
 						<div class="btn-group">
 							<button id="helloMember" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    							<img src="view/images/avatar_menu.png">
+    							<img src="public/images/avatar_menu.png">
   							</button>
   							<div class="dropdown-menu dropdown-menu-right">
     							<a class="dropdown-item" href="connexion/deconnexion">Deconnexion</a>
@@ -87,10 +86,10 @@
 	 	<div class="container-fluid bouton" id="ancrePrincipale">
 	 		<div class="container">
 		 		<div class="row">			 			
-		 			<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="view/images/blog_v2.png" alt="blog de Grégory AGNAN"/></a>
-		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="view/images/connexion_v3.png" alt="connexion"/></a>
-		 			<a href="../CV.pdf" target="_blank" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="view/images/CV_v2.png" alt="cv de Grégory AGNAN"/></a>			 					 									
-		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="view/images/contact_v3.png" alt="contact"/></a>			
+		 			<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="public/images/blog_v2.png" alt="blog de Grégory AGNAN"/></a>
+		 			<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="public/images/connexion_v3.png" alt="connexion"/></a>
+		 			<a href="../CV.pdf" target="_blank" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="public/images/CV_v2.png" alt="cv de Grégory AGNAN"/></a>			 					 									
+		 			<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="public/images/contact_v3.png" alt="contact"/></a>			
 		 		</div>
 	 		</div>
 	 	</div>	 	
@@ -189,9 +188,9 @@
 		 			<p>Grégory AGNAN</p>
 		 		</div>
 		 		<div class="col-lg-6">
-		 			<a class="img_reseaux_sociaux_footer" href="#"><img src="view/images/facebook.png" alt="facebook"/></a>
-					<a class="img_reseaux_sociaux_footer" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="view/images/linkedin.png" alt="linkedin"/></a>
-					<a class="img_reseaux_sociaux_footer" href="#"><img src="view/images/git.png" alt="git"/></a>
+		 			<a class="img_reseaux_sociaux_footer" href="#"><img src="public/images/facebook.png" alt="facebook"/></a>
+					<a class="img_reseaux_sociaux_footer" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="public/images/linkedin.png" alt="linkedin"/></a>
+					<a class="img_reseaux_sociaux_footer" href="#"><img src="public/images/git.png" alt="git"/></a>
 		 		</div>
 		 	</div>
 		</div>

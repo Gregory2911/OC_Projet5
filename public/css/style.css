@@ -1,7 +1,7 @@
 /*STYLE GENERAL*/
 @font-face{
 	font-family:'Comfortaa';
-	src:url('../public/Comfortaa/Comfortaa-Regular.ttf');
+	src:url('../Comfortaa/Comfortaa-Regular.ttf');
 }
 body
 {
@@ -119,7 +119,7 @@ header
 #headerAccueil
 {
 	color: white;
-	background: url("images/header2.jpg") no-repeat fixed;
+	background: url("../images/header2.jpg") no-repeat fixed;
 	background-size: cover;
 	height: 500px;	
 	text-align: center;

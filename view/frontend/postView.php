@@ -43,7 +43,7 @@
             {        
             ?>
                 <div class="media thumbmail">
-                    <img class="media-object" src="view/images/avatar.png">
+                    <img class="media-object" src="public/images/avatar.png">
                     <div class="media-body">
                         <div id="commentAuthor" class="media-heading">
                             <strong><?= $this->sanitize($comment['author']);?></strong>

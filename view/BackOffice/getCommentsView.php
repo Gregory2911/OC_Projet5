@@ -38,7 +38,7 @@
           <td><?= $dateFR ?></td>
           <td><?= $data['comment']?></td>
           <td><?= $data['title']?></td>
-          <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="view/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="view/images/Valider.png"></a></td>
+          <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="public/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="public/images/Valider.png"></a></td>
         </tr>
       <?php
       }

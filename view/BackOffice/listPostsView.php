@@ -21,7 +21,7 @@
 					<td><?= $data['pseudo']?></td>
 					<td><?= $data['creation_date_fr']?></td>
 					<td><?= $data['title']?></td>					
-					<td><button type="button" class="btn" data-toggle="modal" data-target="#deletePost<?=$data['id'];$data['title'];?>"><img src="view/images/Supprimer.png"></button><button type="button" class="btn" data-toggle="modal" data-target="#modifyPost<?=$data['id'];$data['title'];$data['content'];?>"><img src="view/images/Valider.png"></button></td>
+					<td><button type="button" class="btn" data-toggle="modal" data-target="#deletePost<?=$data['id'];$data['title'];?>"><img src="public/images/Supprimer.png"></button><button type="button" class="btn" data-toggle="modal" data-target="#modifyPost<?=$data['id'];$data['title'];$data['content'];?>"><img src="public/images/Valider.png"></button></td>
 				</tr>
 				<!--Popup de confirmation suppression de post-->				
 				<div class="modal fade" role="dialog" id="deletePost<?=$data['id'];$data['title'];?>">
