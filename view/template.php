@@ -167,7 +167,7 @@
 			include ('BackOffice/menuBackOffice.php');
 		}
 	?>
-
+	
   	<?= $content ?>
 
  	<!--<div class="col-lg-4">

@@ -26,7 +26,7 @@ Class View
 		//Génération de la partie spécifique de la vue
 		$content = $this->generateFile($this->file, $data);
 		//On définit une variable locale accessible par la vue pour la racine web
-		//Il s'agit du chemine vers le site sur le serveur Web
+		//Il s'agit du chemin vers le site sur le serveur Web
 		//Nécessaire pour les URL de type controler/action/id
 		$racineWeb = Configuration::get("racineWeb","/");
 		//Génération du template commun utilisant la partie spécifique

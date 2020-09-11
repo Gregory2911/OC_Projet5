@@ -21,10 +21,11 @@ class Router
 			$controler->executeAction($action);		
 		}
 		catch (Exception $e)
-		{
-			echo 'Erreur : ' . $e->getmessage();
-		    // amelioration de la présentation de l'erreur
-		    //$errorMessage = $e->getMessage();	    		    
+		{			
+			$error = $e->getmessage();
+			//var_dump($e);
+			include 'view/error.php';
+			
 		}
 	}
 
