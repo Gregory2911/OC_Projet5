@@ -22,10 +22,10 @@
 						<td><?= $post->title() ?></td>
 						<td>
 							<button type="button" class="btn" data-toggle="modal" data-target="#deletePost<?= $post->id();
-																											$post->title(); ?>"><img src="public/images/Supprimer.png"></button>
+																											$this->sanitize($post->title()); ?>"><img src="public/images/Supprimer.png"></button>
 							<button type="button" class="btn" data-toggle="modal" data-target="#modifyPost<?= $post->id();
-																											$post->title();
-																											$post->content(); ?>"><img src="public/images/Valider.png"></button>
+																											$this->sanitize($post->title());
+																											$this->sanitize($post->content()); ?>"><img src="public/images/Valider.png"></button>
 						</td>
 					</tr>
 					<!--Popup de confirmation suppression de post-->

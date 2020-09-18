@@ -5,7 +5,7 @@
 }
 body
 {
-	font-family: 'Comfortaa','lato','arial','verdana',sans-serif;
+	font-family: 'Comfortaa','lato','arial','verdana', sans-serif;
 	position: relative !important;
 }
 
@@ -26,7 +26,6 @@ section
 	/*background-color: #fdd400;*/
 	background-color: white;
 	border: #fdd400 3px solid;
-
 }
 
 .btn-primary
@@ -47,6 +46,7 @@ section
 	background-color: black;
 	border-bottom: 1px #3726a6 solid;
 }
+
 .btn_reseaux_sociaux
 {
 	margin: auto;

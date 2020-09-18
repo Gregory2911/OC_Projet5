@@ -23,8 +23,8 @@
             <tr class="table-success">
               <td><?= $comment->pseudo() ?></td>
               <td><?= $dateFR ?></td>
-              <td><?= $comment->content() ?></td>
-              <td><?= $comment->postTitle() ?></td>
+              <td><?= $this->sanitize($comment->content()) ?></td>
+              <td><?= $this->sanitize($comment->postTitle()) ?></td>
             </tr>
           <?php
           } else {
@@ -32,8 +32,8 @@
             <tr class="table-danger">
               <td><?= $comment->pseudo() ?></td>
               <td><?= $dateFR ?></td>
-              <td><?= $comment->content() ?></td>
-              <td><?= $comment->postTitle() ?></td>
+              <td><?= $this->sanitize($comment->content()) ?></td>
+              <td><?= $this->sanitize($comment->postTitle()) ?></td>
               <td><a href="backoffice/deleteComment/<?= $comment->id() ?>/#ancrePrincipale"><img src="public/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $comment->id() ?>/#ancrePrincipale"><img src="public/images/Valider.png"></a></td>
             </tr>
         <?php
