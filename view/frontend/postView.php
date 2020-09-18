@@ -35,32 +35,32 @@
 
     <div class="container">
         <?php
-        while ($comment = $comments->fetch()) {
+        foreach ($comments as $comment) {
         ?>
             <div class="media thumbmail">
                 <img class="media-object" src="public/images/avatar.png">
                 <div class="media-body">
                     <div id="commentAuthor" class="media-heading">
-                        <strong><?= $this->sanitize($comment['author']); ?></strong>
+                        <strong><?= $this->sanitize($comment->author()); ?></strong>
                     </div>
                     <div id="commentDate">
-                        le <?= $this->sanitize($comment['comment_date_fr']); ?>
+                        le <?= $this->sanitize($comment->commentDate()); ?>
                     </div>
                     <?php
                     //on affiche le bouton modifier un comment que si c'est l'utilisateur connecté est celui qui a posté le comment
                     if (isset($_SESSION['id'])) {
-                        if ($comment['member_id'] == $_SESSION['id']) {
+                        if ($comment->memberId() == $_SESSION['id']) {
                     ?>
-                            <a data-toggle="modal" href="#modifyComment" data-target="#modifyComment<?= $comment['id'];
-                                                                                                    $comment['comment']; ?>">Modifier</a>
+                            <a data-toggle="modal" href="#modifyComment" data-target="#modifyComment<?= $comment->id();
+                                                                                                    $comment->content(); ?>">Modifier</a>
                     <?php }
                     } ?>
-                    <p><?= nl2br($this->sanitize($comment['comment'])); ?></p>
+                    <p><?= nl2br($this->sanitize($comment->content())); ?></p>
                 </div>
             </div>
             <!--popup de modification d'un commentaire-->
-            <div class="modal" id="modifyComment<?= $comment['id'];
-                                                $comment['comment']; ?>">
+            <div class="modal" id="modifyComment<?= $comment->id();
+                                                $comment->content(); ?>">
                 <div class="modal-dialog modal-lg">
                     <!--Intégration du formulaire-->
                     <div class="modal-content">
@@ -69,10 +69,10 @@
                             <button type="button" class="close" data-dismiss="modal">x</button>
                         </div>
                         <div class="modal-body">
-                            <form action="frontend/updateComment/<?= $comment['id'] ?>/#ancrePrincipale" method="post" enctype="multipart/form-data">
+                            <form action="frontend/updateComment/<?= $comment->id() ?>/#ancrePrincipale" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-4" for="comment">Commentaire</label><br />
-                                    <textarea class="col-lg-8 col-8" id="commentFormTextArea" name="comment"><?= $this->sanitize($comment['comment']); ?></textarea>
+                                    <textarea class="col-lg-8 col-8" id="commentFormTextArea" name="comment"><?= $this->sanitize($comment->content()); ?></textarea>
                                 </div>
 
                                 <div class="mx-auto">

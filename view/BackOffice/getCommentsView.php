@@ -1,9 +1,9 @@
 <section>
   <div class="container">
-    <div class="jumbotron text-center" id="FormContactTitle">            
-            <h1 class="jumbotron-heading">LISTE DES COMMENTAIRES</h1>                   
-        </div>          
-    <table class="table table-bordered table-striped table-condensed" id="listComments">      
+    <div class="jumbotron text-center" id="FormContactTitle">
+      <h1 class="jumbotron-heading">LISTE DES COMMENTAIRES</h1>
+    </div>
+    <table class="table table-bordered table-striped table-condensed" id="listComments">
       <thead>
         <tr>
           <th>Auteur</th>
@@ -14,36 +14,32 @@
         </tr>
       </thead>
       <tbody>
-      <?php
-        while ($data = $comments->fetch())
-        {
-          $date = new DateTime($data['comment_date']);
-          $dateFR = $date->format('d/m/Y');
-          if ($data['isValide'] == 1)
-          {
-      ?>
-        <tr class="table-success">
-          <td><?= $data['pseudo']?></td>              
-          <td><?= $dateFR ?></td>
-          <td><?= $data['comment']?></td>
-          <td><?= $data['title']?></td>              
-        </tr>
         <?php
-        }
-        else
-        {
+        foreach ($comments as $comment) {
+          $date = new DateTime($comment->commentDate());
+          $dateFR = $date->format('d/m/Y');
+          if ($comment->isValide() == 1) {
         ?>
-        <tr class="table-danger">        
-          <td><?= $data['pseudo']?></td>
-          <td><?= $dateFR ?></td>
-          <td><?= $data['comment']?></td>
-          <td><?= $data['title']?></td>
-          <td><a href="backoffice/deleteComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="public/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $data['id'] ?>/#ancrePrincipale"><img src="public/images/Valider.png"></a></td>
-        </tr>
-      <?php
-      }
-      }
-      ?>      
+            <tr class="table-success">
+              <td><?= $comment->pseudo() ?></td>
+              <td><?= $dateFR ?></td>
+              <td><?= $comment->content() ?></td>
+              <td><?= $comment->postTitle() ?></td>
+            </tr>
+          <?php
+          } else {
+          ?>
+            <tr class="table-danger">
+              <td><?= $comment->pseudo() ?></td>
+              <td><?= $dateFR ?></td>
+              <td><?= $comment->content() ?></td>
+              <td><?= $comment->postTitle() ?></td>
+              <td><a href="backoffice/deleteComment/<?= $comment->id() ?>/#ancrePrincipale"><img src="public/images/Supprimer.png"></a><a href="backoffice/validateComment/<?= $comment->id() ?>/#ancrePrincipale"><img src="public/images/Valider.png"></a></td>
+            </tr>
+        <?php
+          }
+        }
+        ?>
       </tbody>
     </table>
   </div>

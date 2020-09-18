@@ -187,7 +187,6 @@ class BackofficeControler extends Controler
     public function getComments()
     {
         $comments = $this->comment->getCommentsBackOffice();
-        //$view = new View('listPostsView');
         $this->generateView(array('comments' => $comments));
     }
 

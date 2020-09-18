@@ -3,7 +3,7 @@
 //require_once('framework/Configuration.php');
 require_once('framework/Controler.php');
 require_once('model/MemberManager.php');
-require_once('framework/Member.php');
+require_once('entity/Member.php');
 
 class ConnexionControler extends Controler
 {

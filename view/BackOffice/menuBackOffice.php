@@ -9,9 +9,3 @@
 		<a class="nav-link" data-toggle="tab" onclick="window.location.href='backoffice/getComments'">Commentaires</a>
 	</li>
 </ul>
-  <!--
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul>
--->

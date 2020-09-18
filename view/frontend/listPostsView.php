@@ -40,7 +40,6 @@
     <?php
                 $nb++;
             }
-            // $posts->closeCursor();
     ?>
 
     </div>
