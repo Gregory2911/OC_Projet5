@@ -1,6 +1,8 @@
 <?php
 
-class Member
+require_once('framework/Entity.php');
+
+class Member extends Entity
 {
 
 	private $_id;
@@ -11,58 +13,40 @@ class Member
 	private $_nom;
 	private $_email;
 
-	public function __construct(array $data)
-	{
-		$this->hydrate($data);
-	}
-
-	public function hydrate(array $data)
-	{
-		foreach ($data as $key => $value) 
-		{
-			$method = 'set' . ucfirst($key);
-
-			if (method_exists($this, $method))
-			{
-				$this->$method($value);
-			}
-		}
-	}
-
 	/*-----GETTERS-----*/
-	public function id() 
+	public function id()
 	{
-		return $this->_id; 
+		return $this->_id;
 	}
 
-	public function pseudo() 
-	{ 
-		return $this->_pseudo; 
+	public function pseudo()
+	{
+		return $this->_pseudo;
 	}
 
-	public function password() 
-	{ 
-		return $this->_password; 
+	public function password()
+	{
+		return $this->_password;
 	}
 
 	public function isAdmin()
-	{ 		
-		return $this->_isAdmin; 
+	{
+		return $this->_isAdmin;
 	}
 
-	public function prenom() 
-	{ 
-		return $this->_prenom; 
+	public function prenom()
+	{
+		return $this->_prenom;
 	}
 
-	public function nom() 
-	{ 
-		return $this->_nom; 
+	public function nom()
+	{
+		return $this->_nom;
 	}
 
-	public function email() 
-	{ 
-		return $this->_email; 
+	public function email()
+	{
+		return $this->_email;
 	}
 
 	public function setId($id)
@@ -73,8 +57,7 @@ class Member
 	/*---------SETTERS---------------------*/
 	public function setPseudo($pseudo)
 	{
-		if (is_string($pseudo) && strlen($pseudo) <= 30)
-		{
+		if (is_string($pseudo) && strlen($pseudo) <= 30) {
 			$this->_pseudo = $pseudo;
 		}
 	}
@@ -91,24 +74,21 @@ class Member
 
 	public function setPrenom($prenom)
 	{
-		if (is_string($prenom) && strlen($prenom) <= 50)
-		{
+		if (is_string($prenom) && strlen($prenom) <= 50) {
 			$this->_prenom = $prenom;
 		}
 	}
 
 	public function setNom($nom)
 	{
-		if (is_string($nom) && strlen($nom) <= 50)
-		{
+		if (is_string($nom) && strlen($nom) <= 50) {
 			$this->_nom = $nom;
 		}
 	}
 
 	public function setEmail($email)
 	{
-		if (is_string($email))
-		{
+		if (is_string($email)) {
 			$this->_email = $email;
 		}
 	}
