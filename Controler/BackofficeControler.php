@@ -29,7 +29,6 @@ class BackofficeControler extends Controler
 
     public function formPost()
     {
-        //$view = new View('listPostsView');
         $this->generateView(array());
     }
 

@@ -16,51 +16,41 @@ class ConnexionControler extends Controler
 	}
 
 	public function connexion()
-	{		
-		if ($this->request->parameterExists("login") && $this->request->parameterExists("password"))
-		{
+	{
+		if ($this->request->parameterExists("login") && $this->request->parameterExists("password")) {
 			$pseudo = $this->request->getParameter("login");
-			$password = $this->request->getParameter("password");		
+			$password = $this->request->getParameter("password");
 
-			$getMember = $this->member->getMember($pseudo, $password);			
+			$getMember = $this->member->getMember($pseudo, $password);
 			//var_dump($getMember);
-			if (!empty($getMember))
-			{
+			if (!empty($getMember)) {
 				$memberConnect = new Member($getMember);
-				$isAdmin = $memberConnect->isAdmin();				
+				$isAdmin = $memberConnect->isAdmin();
 				$idMember = $memberConnect->id();
 
-				$pseudoMember = $memberConnect->pseudo();										
-				
-				if (!empty($idMember) && !empty($pseudoMember))
-				{
+				$pseudoMember = $memberConnect->pseudo();
+
+				if (!empty($idMember) && !empty($pseudoMember)) {
 					//Initialisation d'une session								
 					$_SESSION['id'] = $idMember;
 					$_SESSION['pseudo'] = $pseudoMember;
-					$_SESSION['isAdmin'] = $isAdmin;					
-					
-					$racineWeb = Configuration::get("racineWeb","/");
+					$_SESSION['isAdmin'] = $isAdmin;
+
+					$racineWeb = Configuration::get("racineWeb", "/");
 					header("Location:" . $racineWeb . "index.php");
+				} else {
+					throw new Exception("Identifiant ou mot de passe incorrect.");
 				}
-				else
-				{
-					throw new Exception("Identifiant ou mot de passe incorrect.");								
-				}	
+			} else {
+				throw new Exception("Identifiant ou mot de passe incorrect.");
 			}
-			else
-			{
-				throw new Exception("Identifiant ou mot de passe incorrect.");								
-			}			
+		} else {
+			throw new Exception("Identifiant ou mot de passe incorrect.");
 		}
-		else
-		{
-			throw new Exception("Identifiant ou mot de passe incorrect.");								
-		}		
-		
 	}
 
 	public function inscription()
-	{		
+	{
 		$dataNewMember['prenom'] = $this->request->getParameter('prénom');
 		$dataNewMember['nom'] = $this->request->getParameter('nom');
 		$dataNewMember['email'] = $this->request->getParameter('email');
@@ -69,7 +59,7 @@ class ConnexionControler extends Controler
 
 		$newMember = new Member($dataNewMember);
 
-		$affectedLine = $this->member->addMember($newMember);		
+		$affectedLine = $this->member->addMember($newMember);
 		/*$member = $this->member->getMember($login,$password);
 
 		$data = $member->fetch();
@@ -85,26 +75,22 @@ class ConnexionControler extends Controler
 			$member->closeCursor();			
 		}*/
 
-		if ($affectedLines === false)
-        {        		
-            throw new Exception('Un problème est survenu lors de votre inscription.');
-    	}
-    	else
-    	{
-    		$_SESSION['id'] = $newMember->id();
-			$_SESSION['pseudo'] = $newMember->pseudo();		
-			$_SESSION['isAdmin'] = $newMember->isAdmin();		
+		if ($affectedLine === false) {
+			throw new Exception('Un problème est survenu lors de votre inscription.');
+		} else {
+			$_SESSION['id'] = $newMember->id();
+			$_SESSION['pseudo'] = $newMember->pseudo();
+			$_SESSION['isAdmin'] = $newMember->isAdmin();
 
-    		$racineWeb = Configuration::get("racineWeb","/");
-			header("Location:" . $racineWeb . "index.php");	
-    	}
-		
+			$racineWeb = Configuration::get("racineWeb", "/");
+			header("Location:" . $racineWeb . "index.php");
+		}
 	}
 
 	public function deconnexion()
 	{
 		session_destroy();
-		$racineWeb = Configuration::get("racineWeb","/");
+		$racineWeb = Configuration::get("racineWeb", "/");
 		header("Location:" . $racineWeb . "index.php");
 	}
 }

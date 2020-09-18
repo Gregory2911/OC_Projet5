@@ -193,7 +193,7 @@ header
 	text-align: center;
 }
 
-#photoPost
+.photoPost
 {
 	max-height: 100%;
 	max-width: 100%;

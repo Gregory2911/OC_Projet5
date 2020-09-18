@@ -49,12 +49,13 @@ class Member extends Entity
 		return $this->_email;
 	}
 
+	/*---------SETTERS---------------------*/
+
 	public function setId($id)
 	{
 		$this->_id = (int) $id;
 	}
 
-	/*---------SETTERS---------------------*/
 	public function setPseudo($pseudo)
 	{
 		if (is_string($pseudo) && strlen($pseudo) <= 30) {
