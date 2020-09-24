@@ -48,15 +48,11 @@ class BackofficeControler extends Controler
         }
 
         //contrôle des variables
-        if (!isset($content)) {
-            throw new Exception('Vous n\'avez pas rédigé de commentaire.');
-        } elseif ($content == "") {
+        if (!isset($content) || $content == "") {
             throw new Exception('Vous n\'avez pas rédigé de commentaire.');
         }
 
-        if (!isset($title)) {
-            throw new Exception('Vous n\'avez pas rédigé de titre.');
-        } elseif ($title == "") {
+        if (!isset($title) || $title = "") {
             throw new Exception('Vous n\'avez pas rédigé de titre.');
         }
 
@@ -119,7 +115,7 @@ class BackofficeControler extends Controler
         if (!isset($postId)) {
             throw new Exception('Identifiant invalide.');
         }
-        if (!isset($content)) {
+        if (!isset($content) || $content == "") {
             throw new Exception('Vous n\'avez pas rédigé de commentaire.');
         } elseif ($content == "") {
             throw new Exception('Vous n\'avez pas rédigé de commentaire.');

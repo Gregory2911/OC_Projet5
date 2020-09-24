@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<base href="<?= $this->sanitize($racineWeb) ?>">
-	<title><?= $this->sanitize($title) ?></title>
+	<base href="<?= $racineWeb ?>">
+	<title><?= $title ?></title>
 	<link href="vendor/twbs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="public/css/style.css" rel="stylesheet">
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
