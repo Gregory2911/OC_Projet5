@@ -57,7 +57,7 @@ class CommentManager extends Manager
 
     public function getCommentsBackOffice()
     {
-        $req = 'select comments.id, comments.author,comments.comment, comments.comment_date, comments.post_id, comments.member_id, comments.isValide, posts.title, members.pseudo from comments left join posts on posts.id = comments.post_id left join members on members.id = comments.member_id order by comment_date DESC';
+        $req = 'select comments.id, comments.author,comments.comment, DATE_FORMAT(comment_date,\'%d/%m/%Y\') AS comment_date_fr, comments.post_id, comments.member_id, comments.isValide, posts.title, members.pseudo from comments left join posts on posts.id = comments.post_id left join members on members.id = comments.member_id order by isValide, comment_date DESC';
         $comments = $this->executeRequete($req);
         $commentsArray = [];
         while ($data = $comments->fetch(\PDO::FETCH_ASSOC)) {

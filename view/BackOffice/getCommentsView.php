@@ -16,8 +16,7 @@
       <tbody>
         <?php
         foreach ($comments as $comment) {
-          $date = new DateTime($comment->commentDate());
-          $dateFR = $date->format('d/m/Y');
+          $dateFR = $comment->commentDate();
           if ($comment->isValide() == 1) {
         ?>
             <tr class="table-success">
