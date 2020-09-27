@@ -28,4 +28,13 @@ class MemberManager extends Manager
 
 		return $affectedLine;
 	}
+
+	public function findSamePseudo($pseudo)
+	{
+		$req = 'select count(members.id) as nb from members where members.pseudo = ?';
+		$response = $this->executeRequete($req, array($pseudo));
+		$data = $response->fetch(\PDO::FETCH_ASSOC);
+		$nb = $data['nb'];
+		return $nb;
+	}
 }

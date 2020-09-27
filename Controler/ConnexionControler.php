@@ -56,19 +56,29 @@ class ConnexionControler extends Controler
 
 		$newMember = new Member($dataNewMember);
 
-		$affectedLine = $this->member->addMember($newMember);
-
-		$memberConnect = $this->member->getMember($newMember->pseudo(), $newMember->password());
-
-		if ($affectedLine === false) {
-			throw new Exception('Un problème est survenu lors de votre inscription.');
+		if ($newMember->prenom() == "" || $newMember->nom() == "") {
+			throw new Exception('Il manque une information importante pour finaliser votre inscription.');
+		} else if ($newMember->password() == "") {
+			throw new Exception('Vous n\'avez pas saisi de mot de passe.');
+		} else if ($newMember->pseudo() == "") {
+			throw new Exception('Vous n\'avez pas saisi de login.');
+		} else if ($this->member->findSamePseudo($newMember->pseudo()) > 0) {
+			throw new Exception('Le login existe déjà. Merci d\'en choisir un nouveau.');
 		} else {
-			$_SESSION['id'] = $memberConnect->id();
-			$_SESSION['pseudo'] = $memberConnect->pseudo();
-			$_SESSION['isAdmin'] = $memberConnect->isAdmin();
+			$affectedLine = $this->member->addMember($newMember);
 
-			$racineWeb = Configuration::get("racineWeb", "/");
-			header("Location:" . $racineWeb . "index.php");
+			$memberConnect = $this->member->getMember($newMember->pseudo(), $newMember->password());
+
+			if ($affectedLine === false) {
+				throw new Exception('Un problème est survenu lors de votre inscription.');
+			} else {
+				$_SESSION['id'] = $memberConnect->id();
+				$_SESSION['pseudo'] = $memberConnect->pseudo();
+				$_SESSION['isAdmin'] = $memberConnect->isAdmin();
+
+				$racineWeb = Configuration::get("racineWeb", "/");
+				header("Location:" . $racineWeb . "index.php");
+			}
 		}
 	}
 
