@@ -1,6 +1,4 @@
 <?php
-//session_start();
-//require_once('framework/Configuration.php');
 require_once('framework/Controler.php');
 require_once('model/MemberManager.php');
 require_once('entity/Member.php');
@@ -22,9 +20,8 @@ class ConnexionControler extends Controler
 			$password = $this->request->getParameter("password");
 
 			$getMember = $this->member->getMember($pseudo, $password);
-			//var_dump($getMember);
 			if (!empty($getMember)) {
-				$memberConnect = new Member($getMember);
+				$memberConnect = $getMember;
 				$isAdmin = $memberConnect->isAdmin();
 				$idMember = $memberConnect->id();
 
@@ -60,27 +57,15 @@ class ConnexionControler extends Controler
 		$newMember = new Member($dataNewMember);
 
 		$affectedLine = $this->member->addMember($newMember);
-		/*$member = $this->member->getMember($login,$password);
 
-		$data = $member->fetch();
-		if (empty($data))
-		{
-			throw new Exception("");
-		}
-		else
-		{			
-			//Initialisation d'une session					
-			$_SESSION['id'] = $data['id'];
-			$_SESSION['pseudo'] = $data['pseudo'];							
-			$member->closeCursor();			
-		}*/
+		$memberConnect = $this->member->getMember($newMember->pseudo(), $newMember->password());
 
 		if ($affectedLine === false) {
 			throw new Exception('Un problème est survenu lors de votre inscription.');
 		} else {
-			$_SESSION['id'] = $newMember->id();
-			$_SESSION['pseudo'] = $newMember->pseudo();
-			$_SESSION['isAdmin'] = $newMember->isAdmin();
+			$_SESSION['id'] = $memberConnect->id();
+			$_SESSION['pseudo'] = $memberConnect->pseudo();
+			$_SESSION['isAdmin'] = $memberConnect->isAdmin();
 
 			$racineWeb = Configuration::get("racineWeb", "/");
 			header("Location:" . $racineWeb . "index.php");
