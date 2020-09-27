@@ -7,7 +7,7 @@ class CommentManager extends Manager
 {
     public function getComments($postId)
     {
-        $req = 'select id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, member_id FROM comments WHERE post_id = ? and comments.isValide = 1 ORDER BY comment_date DESC';
+        $req = 'select id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_fr, member_id FROM comments WHERE post_id = ? and comments.isValide = 1 ORDER BY comment_date DESC';
         $comments = $this->executeRequete($req, array($postId));
         $commentsArray = [];
         while ($data = $comments->fetch(\PDO::FETCH_ASSOC)) {

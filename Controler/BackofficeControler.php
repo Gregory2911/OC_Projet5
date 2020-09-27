@@ -52,7 +52,7 @@ class BackofficeControler extends Controler
             throw new Exception('Vous n\'avez pas rédigé de commentaire.');
         }
 
-        if (!isset($title) || $title = "") {
+        if (!isset($title) || $title == "") {
             throw new Exception('Vous n\'avez pas rédigé de titre.');
         }
 
