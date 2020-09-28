@@ -39,8 +39,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>
-				<a class="nav-link" href="#">À propos</a>
+				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>				
 				<a class="nav-link" href="#formContact">Contact</a>
 				<?php
 				if (isset($_SESSION) && !empty($_SESSION['pseudo'])) {
