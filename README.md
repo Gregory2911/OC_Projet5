@@ -10,3 +10,4 @@ Création d'un blog en PHP
 <p><strong>Etape 4 :</strong> Configurer dans le fichier config/dev.ini le nom de dossier à la racine web du projet ainsi que les paramètres de la base de données.</p>
 <p><strong>Etape 5 :</strong> Créer un premier utilisateur sur le blog et valider dans la bdd la colonne isAdmin pour créer un accès administrateur.</p> 
 <p>Votre blog est désormais fonctionnel.</p>
+
