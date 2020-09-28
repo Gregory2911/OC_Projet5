@@ -1,4 +1,4 @@
-<?php $this->title = 'Mon blog';  //1. on definit le titre de la page dans $title. Celui ci sera intégré dans la balise <title> dans le template-->
+<?php $this->title = 'Mon blog';
 
 ?>
 <section class="container">
@@ -10,9 +10,7 @@
 
     <div class="news">
         <img src="public/photoPost/<?= $post->id() ?>/<?= $post->srcPhoto() ?>" id="photoPost">
-        <h3>
-            <em>Posté le <?= $post->creationDate() ?></em>
-        </h3>
+        <p id="infoPost">Posté le <?= $post->creationDate() ?> par <?= $post->pseudo() ?> </p>
 
         <p>
             <?= $post->content() ?>
@@ -88,20 +86,12 @@
         ?>
     </div>
 
-    <!--
-        <div class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Poster un commentaire</h1>       
-            </div>
-        </div>        
-        -->
     <div id="formComment">
         <form action="frontend/addComment/<?= $post->id() ?>/#ancrePrincipale" method="post" class="col-lg-12">
             <div class="form-group">
-                <!--<label for="comment">Commentaire</label><br />-->
                 <textarea class="form-control" id="commentFormTextArea" name="comment" placeholder="Ecrivez votre commentaire içi."></textarea>
             </div>
-
+            <p id="infoPostComment">Tout commentaire posté sera soumis à validation d'un modérateur avant d'être publié.</p>
             <button class="btn btn-primary" type="submit">Valider</button>
 
         </form>

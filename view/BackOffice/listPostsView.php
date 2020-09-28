@@ -62,6 +62,11 @@
 										</div>
 
 										<div class="form-group">
+											<label for="châpo">Châpo</label>
+											<input type="text" class="form-control" name="châpo" id="châpo" value="<?= $post->châpo() ?>">
+										</div>
+
+										<div class="form-group">
 											<label for="content">Contenu</label>
 											<textarea class="form-control" name="content" id="content" rows="6"><?= $this->sanitize($post->content()); ?></textarea>
 										</div>

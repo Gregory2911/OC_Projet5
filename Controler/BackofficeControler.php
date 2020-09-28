@@ -43,6 +43,10 @@ class BackofficeControler extends Controler
             $title = $this->request->getParameter('title');
         }
 
+        if ($this->request->parameterExists('châpo')) {
+            $châpo = $this->request->getParameter('châpo');
+        }
+
         if ($this->request->parameterExists('imgPost')) {
             $imgPost = $this->request->getParameter('imgPost');
         }
@@ -54,6 +58,10 @@ class BackofficeControler extends Controler
 
         if (!isset($title) || $title == "") {
             throw new Exception('Vous n\'avez pas rédigé de titre.');
+        }
+
+        if (!isset($châpo) || $châpo == "") {
+            throw new Exception('Vous n\'avez pas rédigé de châpo.');
         }
 
         if (!isset($imgPost) || $imgPost['name'] == '') {
@@ -72,7 +80,7 @@ class BackofficeControler extends Controler
             }
         }
 
-        $affectedLines = $this->post->addPost($title, $content, $_SESSION['id']);
+        $affectedLines = $this->post->addPost($title, $châpo, $content, $_SESSION['id']);
 
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le post.');
@@ -103,6 +111,10 @@ class BackofficeControler extends Controler
             $title = $this->request->getParameter('title');
         }
 
+        if ($this->request->parameterExists('châpo')) {
+            $châpo = $this->request->getParameter('châpo');
+        }
+
         if ($this->request->parameterExists('imgPost')) {
             $imgPost = $this->request->getParameter('imgPost');
         }
@@ -127,6 +139,12 @@ class BackofficeControler extends Controler
             throw new Exception('Vous n\'avez pas rédigé de titre.');
         }
 
+        if (!isset($châpo)) {
+            throw new Exception('Vous n\'avez pas rédigé de châpo.');
+        } elseif ($châpo == "") {
+            throw new Exception('Vous n\'avez pas rédigé de châpo.');
+        }
+
         //contrôle de l'image si modification 
         //var_dump($imgPost);
         if ($imgPost['name'] != '') {
@@ -143,7 +161,7 @@ class BackofficeControler extends Controler
             }
         }
 
-        $affectedLines = $this->post->updatePost($title, $content, $postId);
+        $affectedLines = $this->post->updatePost($title, $châpo, $content, $postId);
 
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le post.');

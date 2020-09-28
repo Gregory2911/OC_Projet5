@@ -29,7 +29,7 @@
                 </h3>
                 <p><?= $this->sanitize($post->creationDate()); ?></p>
                 <p class="postContent">
-                    <?= $post->content(); ?>
+                    <?= $post->châpo(); ?>
                 </p>
                 <p>
                     <em><a href="frontend/post/<?= $post->id() ?>/#ancrePrincipale">Voir plus</a></em>

@@ -6,6 +6,7 @@ class Post extends Entity
 {
     private $_id;
     private $_title;
+    private $_châpo;
     private $_content;
     private $_creation_date;
     private $_author_id;
@@ -22,6 +23,11 @@ class Post extends Entity
     public function title()
     {
         return $this->_title;
+    }
+
+    public function châpo()
+    {
+        return $this->_châpo;
     }
 
     public function content()
@@ -65,6 +71,13 @@ class Post extends Entity
     {
         if (is_string($title)) {
             $this->_title = $title;
+        }
+    }
+
+    public function setChâpo($châpo)
+    {
+        if (is_string($châpo)) {
+            $this->_châpo = $châpo;
         }
     }
 
