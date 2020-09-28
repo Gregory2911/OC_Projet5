@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-12 essai">
                         <a href="frontend/post/<?= $post->id() ?>">
-                            <img src="../photoPost/<?= $post->id() ?>/<?= $this->sanitize($post->srcPhotoMini()) ?>" class="photoPost">
+                            <img src="public/photoPost/<?= $post->id() ?>/<?= $this->sanitize($post->srcPhotoMini()) ?>" class="photoPost">
                         </a>
                     </div>
                 </div>

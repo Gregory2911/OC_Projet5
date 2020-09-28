@@ -8,7 +8,7 @@ class ImageControler
 		
 		if ($fileExtension == 'png')
             {
-                $source = imagecreatefrompng('../photoPost/' . $lastPostId ."/" . $image);
+                $source = imagecreatefrompng('public/photoPost/' . $lastPostId ."/" . $image);
                 $destination = imagecreatetruecolor(475,190);                
                 //$fileNameMini = "post_mini" . $lastPostId . "." . $fileExtension;
                 //$imagepng = imagepng('../photoPost/' . $newFile . $fileNameMini);
@@ -22,11 +22,11 @@ class ImageControler
 
                 // On enregistre la miniature
                 $fileMiniName = "post" . $lastPostId . "_mini." . $fileExtension;
-                imagepng($destination, "../photoPost/" . $lastPostId . "/" . $fileMiniName);
+                imagepng($destination, "public/photoPost/" . $lastPostId . "/" . $fileMiniName);
             }
         else
         {
-            $source = imagecreatefromjpeg('../photoPost/' . $lastPostId ."/" . $image);
+            $source = imagecreatefromjpeg('public/photoPost/' . $lastPostId ."/" . $image);
             $destination = imagecreatetruecolor(475,190);                
             //$fileNameMini = "post_mini" . $lastPostId . "." . $fileExtension;
             //$imagepng = imagepng('../photoPost/' . $newFile . $fileNameMini);
@@ -40,7 +40,7 @@ class ImageControler
 
             // On enregistre la miniature
             $fileMiniName = "post" . $lastPostId . "_mini." . $fileExtension;
-            imagejpeg($destination, "../photoPost/" . $lastPostId . "/" . $fileMiniName);   
+            imagejpeg($destination, "public/photoPost/" . $lastPostId . "/" . $fileMiniName);   
         }        
         return $fileMiniName;
 	}

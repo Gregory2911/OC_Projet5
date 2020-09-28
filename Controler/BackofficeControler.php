@@ -79,9 +79,9 @@ class BackofficeControler extends Controler
         } else {
             $lastPostId = $this->post->lastInsertId();
             $fileName = "post" . $lastPostId . "." . $fileExtension;
-            $newFile = mkdir('../photoPost/' . $lastPostId);
+            $newFile = mkdir('public/photoPost/' . $lastPostId);
 
-            move_uploaded_file($imgPost['tmp_name'], '../photoPost/' . $lastPostId . "/" . $fileName);
+            move_uploaded_file($imgPost['tmp_name'], 'public/photoPost/' . $lastPostId . "/" . $fileName);
 
             $fileMiniName = $this->image->resizeImage($fileName, $fileExtension, $lastPostId);
 
