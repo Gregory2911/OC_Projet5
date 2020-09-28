@@ -21,9 +21,9 @@
 	<div class="container-fluid">
 		<div class="row" id="topbar">
 			<div class="offset-lg-4 col-lg-4 btn_reseaux_sociaux">
-				<a class="img_reseaux_sociaux" href="#"><img src="public/images/facebook.png" alt="facebook" /></a>
+				<a class="img_reseaux_sociaux" href="https://fr-fr.facebook.com/gregory.agnan.7" target="_blank"><img src="public/images/facebook.png" alt="facebook" /></a>
 				<a class="img_reseaux_sociaux" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="public/images/linkedin.png" alt="linkedin" /></a>
-				<a class="img_reseaux_sociaux" href="#"><img src="public/images/git.png" alt="git" /></a>
+				<a class="img_reseaux_sociaux" href="https://github.com/Gregory2911" target="_blank"><img src="public/images/git.png" alt="git" /></a>
 			</div>
 		</div>
 	</div>
@@ -186,9 +186,9 @@
 					<p>Grégory AGNAN</p>
 				</div>
 				<div class="col-lg-6">
-					<a class="img_reseaux_sociaux_footer" href="#"><img src="public/images/facebook.png" alt="facebook" /></a>
+					<a class="img_reseaux_sociaux_footer" href="https://fr-fr.facebook.com/gregory.agnan.7" target="_blank"><img src="public/images/facebook.png" alt="facebook" /></a>
 					<a class="img_reseaux_sociaux_footer" href="https://www.linkedin.com/in/gr%C3%A9gory-agnan-32165818b/" target="_blank"><img src="public/images/linkedin.png" alt="linkedin" /></a>
-					<a class="img_reseaux_sociaux_footer" href="#"><img src="public/images/git.png" alt="git" /></a>
+					<a class="img_reseaux_sociaux_footer" href="https://github.com/Gregory2911" target="_blank"><img src="public/images/git.png" alt="git" /></a>
 				</div>
 			</div>
 		</div>
