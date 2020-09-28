@@ -16,7 +16,7 @@
       <tbody>
         <?php
         foreach ($comments as $comment) {
-          $dateFR = $comment->commentDate();
+          $dateFR = $this->sanitize($comment->commentDate());
           if ($comment->isValide() == 1) {
         ?>
             <tr class="table-success">
@@ -29,7 +29,7 @@
           } else {
           ?>
             <tr class="table-danger">
-              <td><?= $comment->pseudo() ?></td>
+              <td><?= $this->sanitize($comment->pseudo()) ?></td>
               <td><?= $dateFR ?></td>
               <td><?= $this->sanitize($comment->content()) ?></td>
               <td><?= $this->sanitize($comment->postTitle()) ?></td>

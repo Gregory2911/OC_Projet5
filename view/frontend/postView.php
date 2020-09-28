@@ -9,8 +9,8 @@
     <p><a href="index.php/#ancrePrincipale">Retour à la liste des billets</a></p>
 
     <div class="news">
-        <img src="public/photoPost/<?= $post->id() ?>/<?= $post->srcPhoto() ?>" id="photoPost">
-        <p id="infoPost">Posté le <?= $post->creationDate() ?> par <?= $post->pseudo() ?> </p>
+        <img src="public/photoPost/<?= $post->id() ?>/<?= $this->sanitize($post->srcPhoto()) ?>" id="photoPost">
+        <p id="infoPost">Posté le <?= $this->sanitize($post->creationDate()) ?> par <?= $this->sanitize($post->pseudo()) ?> </p>
 
         <p>
             <?= $post->content() ?>
@@ -50,7 +50,7 @@
                         if ($comment->memberId() == $_SESSION['id']) {
                     ?>
                             <a data-toggle="modal" href="#modifyComment" data-target="#modifyComment<?= $comment->id();
-                                                                                                    $comment->content(); ?>">Modifier</a>
+                                                                                                    $this->sanitize($comment->content()); ?>">Modifier</a>
                     <?php }
                     } ?>
                     <p><?= nl2br($this->sanitize($comment->content())); ?></p>
@@ -58,7 +58,7 @@
             </div>
             <!--popup de modification d'un commentaire-->
             <div class="modal" id="modifyComment<?= $comment->id();
-                                                $comment->content(); ?>">
+                                                $this->sanitize($comment->content()); ?>">
                 <div class="modal-dialog modal-lg">
                     <!--Intégration du formulaire-->
                     <div class="modal-content">

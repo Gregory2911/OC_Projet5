@@ -17,9 +17,9 @@
 				foreach ($posts as $post) {
 				?>
 					<tr>
-						<td><?= $post->pseudo() ?></td>
-						<td><?= $post->creationDate() ?></td>
-						<td><?= $post->title() ?></td>
+						<td><?= $this->sanitize($post->pseudo()) ?></td>
+						<td><?= $this->sanitize($post->creationDate()) ?></td>
+						<td><?= $this->sanitize($post->title()) ?></td>
 						<td>
 							<button type="button" class="btn" data-toggle="modal" data-target="#deletePost<?= $post->id();
 																											$this->sanitize($post->title()); ?>"><img src="public/images/Supprimer.png"></button>
@@ -30,11 +30,11 @@
 					</tr>
 					<!--Popup de confirmation suppression de post-->
 					<div class="modal fade" role="dialog" id="deletePost<?= $post->id();
-																		$post->title(); ?>">
+																		$this->sanitize($post->title()); ?>">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title">Confirmez-vous la suppression du post : <?= $post->title() ?> </h4>
+									<h4 class="modal-title">Confirmez-vous la suppression du post : <?= $this->sanitize($post->title()) ?> </h4>
 								</div>
 								<div class="modal-body">
 									<button type="button" onclick="window.location.href='backoffice/deletePost/<?= $post->id() ?>';" data-dismiss="modal">Confirmer</button>
@@ -45,7 +45,7 @@
 					</div>
 					<!--popup de modification du post-->
 					<div class="modal" id="modifyPost<?= $post->id();
-														$post->title();
+														$this->sanitize($post->title());
 														$post->content(); ?>">
 						<div class="modal-dialog modal-lg">
 							<!--Intégration du formulaire-->
@@ -58,12 +58,12 @@
 									<form action="backoffice/updatePost/<?= $post->id() ?>" method="post" enctype="multipart/form-data">
 										<div class="form-group">
 											<label for="title">Titre</label>
-											<input type="text" class="form-control" name="title" id="title" value="<?= $post->title() ?>">
+											<input type="text" class="form-control" name="title" id="title" value="<?= $this->sanitize($post->title()) ?>">
 										</div>
 
 										<div class="form-group">
 											<label for="châpo">Châpo</label>
-											<input type="text" class="form-control" name="châpo" id="châpo" value="<?= $post->châpo() ?>">
+											<input type="text" class="form-control" name="châpo" id="châpo" value="<?= $this->sanitize($post->châpo()) ?>">
 										</div>
 
 										<div class="form-group">
