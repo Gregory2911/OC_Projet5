@@ -39,7 +39,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>				
+				<a class="nav-link" href="frontend/listPosts/#ancrePrincipale">Mon Blog</a>
 				<a class="nav-link" href="#formContact">Contact</a>
 				<?php
 				if (isset($_SESSION) && !empty($_SESSION['pseudo'])) {
@@ -84,7 +84,7 @@
 				<div class="row">
 					<a href="frontend/listPosts/#ancrePrincipale" class="btnEntete" data-toggle="popover" data-content="Mon Blog" id="btnProg"><img class="photoMenu" src="public/images/blog_v2.png" alt="blog de Grégory AGNAN" /></a>
 					<a data-toggle="modal" data-content="Connexion" id="btnInscription" href="#connexion" class="btnEntete"><img class="photoMenu" src="public/images/connexion_v3.png" alt="connexion" /></a>
-					<a href="../CV.pdf" target="_blank" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="public/images/CV_v2.png" alt="cv de Grégory AGNAN" /></a>
+					<a href="public/CV/CV.pdf" target="_blank" class="btnEntete" data-toggle="popover" data-content="Mon parcours" id="btnNews"><img class="photoMenu" src="public/images/CV_v2.png" alt="cv de Grégory AGNAN" /></a>
 					<a href="#formContact" class="btnEntete" data-toggle="popover" data-content="Contact" id="btnPhoto"><img class="photoMenu" src="public/images/contact_v3.png" alt="contact" /></a>
 				</div>
 			</div>
