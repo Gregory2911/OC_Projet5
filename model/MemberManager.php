@@ -12,7 +12,10 @@ class MemberManager extends Manager
 		$req = 'select id, pseudo, password, isAdmin, prenom, nom, email from members where pseudo = ?';
 		$response = $this->executeRequete($req, array($pseudo));
 		$data = $response->fetch(\PDO::FETCH_ASSOC);
-		$member = new Member($data);
+
+		if ($data !== false) {
+			$member = new Member($data);
+		}
 
 		if (isset($member)) {
 			return $member;
