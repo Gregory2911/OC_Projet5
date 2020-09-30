@@ -7,10 +7,10 @@ require_once("entity/Member.php");
 
 class MemberManager extends Manager
 {
-	public function getMember($pseudo, $password)
+	public function getMember($pseudo)
 	{
-		$req = 'select id, pseudo, password, isAdmin, prenom, nom, email from members where pseudo = ? and password = ?';
-		$response = $this->executeRequete($req, array($pseudo, $password));
+		$req = 'select id, pseudo, password, isAdmin, prenom, nom, email from members where pseudo = ?';
+		$response = $this->executeRequete($req, array($pseudo));
 		$data = $response->fetch(\PDO::FETCH_ASSOC);
 		$member = new Member($data);
 

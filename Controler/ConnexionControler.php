@@ -20,7 +20,7 @@ class ConnexionControler extends Controler
 			$password = $this->request->getParameter("password");
 
 			$getMember = $this->member->getMember($pseudo, $password);
-			if (!empty($getMember)) {
+			if (!empty($getMember) && password_verify($password, $getMember->password())) {
 				$memberConnect = $getMember;
 				$isAdmin = $memberConnect->isAdmin();
 				$idMember = $memberConnect->id();
@@ -52,7 +52,8 @@ class ConnexionControler extends Controler
 		$dataNewMember['nom'] = $this->request->getParameter('nom');
 		$dataNewMember['email'] = $this->request->getParameter('email');
 		$dataNewMember['pseudo'] = $this->request->getParameter('login');
-		$dataNewMember['password'] = $this->request->getParameter('password');
+		$dataNewMember['password'] = password_hash($this->request->getParameter('password'), PASSWORD_DEFAULT);
+
 
 		$newMember = new Member($dataNewMember);
 
